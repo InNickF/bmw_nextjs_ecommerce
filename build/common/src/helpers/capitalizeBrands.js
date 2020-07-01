@@ -1,2 +1,0 @@
-export default str =>
-  str.replace(/bmw/ig, "BMW").replace(/mini /ig, "MINI ").replace(/mini,/ig, "MINI,").replace(/motorrad/ig, "MOTORRAD").replace(/john cooper works/ig, "John Cooper Works").replace(/mw I/ig, "MW i").replace(/mw x/ig, "MW X").replace(/mw m/ig, "MW M").replace(/M motorsport/ig, "M Motorsport").replace(/Collection/ig, "Collection").replace(/CLÁSICA/ig, "Clásica").replace(/ACTIVE/ig, "Active").replace(/GOLFSPORT/ig, "Golfsport")
