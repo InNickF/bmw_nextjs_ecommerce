@@ -1,0 +1,132 @@
+stages:
+  - build
+  - deploy-bmw
+  - deploy-mini
+  - deploy-motorrad
+
+services:
+  - docker:19.03.1-dind
+
+build-bmw:
+  image: docker:19.03.1
+  stage: build
+  variables:
+    APP_NAME: bmw
+    BRAND_ID: 3
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$APP_NAME-$CI_COMMIT_SHORT_SHA
+    DOCKER_HOST: tcp://docker:2375
+    API_URL: https://api.arepa.site
+    NODE_ENV: production
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - ./setup_env.sh
+    - cat .env
+  script:
+    - docker build --build-arg APP_NAME=$APP_NAME --build-arg BRAND_ID=$BRAND_ID -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
+  only:
+    - develop
+
+build-mini:
+  image: docker:19.03.1
+  stage: build
+  variables:
+    APP_NAME: mini
+    BRAND_ID: 2
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$APP_NAME-$CI_COMMIT_SHORT_SHA
+    DOCKER_HOST: tcp://docker:2375
+    API_URL: https://api.arepa.site
+    NODE_ENV: production
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - ./setup_env.sh
+    - cat .env
+  script:
+    - docker build --build-arg APP_NAME=$APP_NAME --build-arg BRAND_ID=$BRAND_ID -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
+  only:
+    - develop
+
+
+build-motorrad:
+  image: docker:19.03.1
+  stage: build
+  variables:
+    APP_NAME: motorrad
+    BRAND_ID: 1
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$APP_NAME-$CI_COMMIT_SHORT_SHA
+    DOCKER_HOST: tcp://docker:2375
+    API_URL: https://api.arepa.site
+    NODE_ENV: production
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - ./setup_env.sh
+    - cat .env
+  script:
+    - docker build --build-arg APP_NAME=$APP_NAME --build-arg BRAND_ID=$BRAND_ID -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
+  only:
+    - develop
+
+deploy-bmw:
+  stage: deploy-bmw
+  variables:
+    APP_NAME: bmw
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$APP_NAME-$CI_COMMIT_SHORT_SHA
+    SWARM_MANAGER_DNS: ubuntu@ec2-3-234-177-204.compute-1.amazonaws.com
+    SWARM_MANAGER_IP: 3.234.177.204
+    DOCKER_SERVICE: e-commerce_bmw
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - mkdir -p ~/.ssh
+    - ssh-keyscan -H $SWARM_MANAGER_IP >> ~/.ssh/known_hosts
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  script:
+    - ssh $SWARM_MANAGER_DNS "docker login -u autogermana-bmw-develop -p XHrTWUBsuQ4zWGfNTRki registry.gitlab.com"
+    - ssh $SWARM_MANAGER_DNS "docker service update --with-registry-auth --image $IMAGE_TAG $DOCKER_SERVICE"
+  only:
+    - develop
+
+deploy-mini:
+  stage: deploy-mini
+  variables:
+    APP_NAME: mini
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$APP_NAME-$CI_COMMIT_SHORT_SHA
+    SWARM_MANAGER_DNS: ubuntu@ec2-3-234-177-204.compute-1.amazonaws.com
+    SWARM_MANAGER_IP: 3.234.177.204
+    DOCKER_SERVICE: e-commerce_mini
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - mkdir -p ~/.ssh
+    - ssh-keyscan -H $SWARM_MANAGER_IP >> ~/.ssh/known_hosts
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  script:
+    - ssh $SWARM_MANAGER_DNS "docker login -u autogermana-bmw-develop -p XHrTWUBsuQ4zWGfNTRki registry.gitlab.com"  
+    - ssh $SWARM_MANAGER_DNS "docker service update --with-registry-auth --image $IMAGE_TAG $DOCKER_SERVICE"
+  only:
+    - develop
+
+deploy-motorrad:
+  stage: deploy-motorrad
+  variables:
+    APP_NAME: motorrad
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$APP_NAME-$CI_COMMIT_SHORT_SHA
+    SWARM_MANAGER_DNS: ubuntu@ec2-3-234-177-204.compute-1.amazonaws.com
+    SWARM_MANAGER_IP: 3.234.177.204
+    DOCKER_SERVICE: e-commerce_motorrad
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - mkdir -p ~/.ssh
+    - ssh-keyscan -H $SWARM_MANAGER_IP >> ~/.ssh/known_hosts
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  script:
+    - ssh $SWARM_MANAGER_DNS "docker login -u autogermana-bmw-develop -p XHrTWUBsuQ4zWGfNTRki registry.gitlab.com"
+    - ssh $SWARM_MANAGER_DNS "docker service update --with-registry-auth --image $IMAGE_TAG $DOCKER_SERVICE"
+  only:
+    - develop

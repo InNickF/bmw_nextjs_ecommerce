@@ -1,0 +1,139 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: campo_gitlab_ci
+   namespace: 
+   labels:
+     app: campo_gitlab_ci
+spec:
+  replicas: 1
+  selector:
+     matchLabels:
+       app: campo_gitlab_ci
+  template: 
+    metadata:
+      labels:
+        app: campo_gitlab_ci
+    spec:
+      containers:
+      - name: campo_gitlab_ci
+        image: 
+        ports:
+        - containerPort: 80
+        - containerPort: 5432
+        env:
+          - name: PORT
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: PORT
+          - name: APP_NAME
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: APP_NAME
+          - name: BRAND_ID
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: BRAND_ID
+          - name: PRODUCTION
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: PRODUCTION
+          - name: NODE_ENV
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: NODE_ENV
+          - name: FIREBASE_apiKey_bmw
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_apiKey_bmw
+          - name: FIREBASE_apiKey_motorrad
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_apiKey_motorrad
+          - name: FIREBASE_authDomain_bmw
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_authDomain_bmw
+          - name: FIREBASE_authDomain_motorrad
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_authDomain_motorrad
+          - name: FIREBASE_databaseURL_bmw
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_databaseURL_bmw
+          - name: FIREBASE_databaseURL_motorrad
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_databaseURL_motorrad
+          - name: FIREBASE_projectId_bmw
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_projectId_bmw
+          - name: FIREBASE_projectId_motorrad
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_projectId_motorrad
+          - name: FIREBASE_storageBucket_bmw
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_storageBucket_bmw
+          - name: FIREBASE_storageBucket_motorrad
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_storageBucket_motorrad
+          - name: FIREBASE_messagingSenderId_bmw
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_messagingSenderId_bmw
+          - name: FIREBASE_messagingSenderId_motorrad
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_messagingSenderId_motorrad
+          - name: FIREBASE_apiKey_mini
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_apiKey_mini
+          - name: FIREBASE_authDomain_mini
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_authDomain_mini
+          - name: FIREBASE_databaseURL_mini
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_databaseURL_mini
+          - name: FIREBASE_projectId_mini
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_projectId_mini
+          - name: FIREBASE_storageBucket_mini
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_storageBucket_mini
+          - name: FIREBASE_messagingSenderId_mini
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: FIREBASE_messagingSenderId_mini
