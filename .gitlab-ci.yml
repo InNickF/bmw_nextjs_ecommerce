@@ -86,7 +86,6 @@ Deploy:
     - echo $url_sitio;    
 
 # SELECT master or staging ENV
-
     - echo "before_script - SELECT master or staging ENV" ;
     - if [ "$CI_COMMIT_BRANCH" == "master" ]; then 
         echo "MASTER" ; 
@@ -121,6 +120,18 @@ Deploy:
     
 # INGRESS ${file_yaml_ingress}
     - echo "before_script - INGRESS" ;
+    
+    # SELECT master or staging TLS staging
+    - echo "before_script - SELECT master or staging INGRESS" ;
+    - if [ "$CI_COMMIT_BRANCH" == "master" ]; then 
+        echo "MASTER" ; 
+      else 
+        echo "STAGING" ;
+        sed -i '6i\    cert-manager.io/cluster-issuer:\ "letsencrypt-prod"' deploy/${file_yaml_ingress} ;
+        sed -i '6i\    kubernetes.io/ingress.class:\ "nginx"' deploy/${file_yaml_ingress} ;
+        sed -i "6i\  annotations:" deploy/${file_yaml_ingress} ;        
+      fi    
+    
     - sed -i 's/campo_gitlab_ci/'"$CI_COMMIT_BRANCH"'-'"$CI_PROJECT_NAME"'/g' deploy/${file_yaml_ingress} ;      
     - sed -i '5 s/namespace:\ /&'"$CI_COMMIT_BRANCH"'/g' deploy/${file_yaml_ingress}    
     - sed -i 's/URL/'"$url_sitio"'/g' deploy/${file_yaml_ingress} ;          
@@ -156,10 +167,18 @@ Deploy:
     - echo "script - INGRESS"
 #    - echo $file_yaml_service    
 #    - cat deploy/${file_yaml_ingress}    
+    # SELECT master or staging TLS master
+    - echo "before_script - SELECT master or staging INGRESS" ;
+    - if [ "$CI_COMMIT_BRANCH" == "master" ]; then 
+        echo "MASTER" ; 
+        kubectl apply -f ${master_bmwshop_ingress_secret} ;
+      else 
+        echo "STAGING" ;
+      fi    
+
     - kubectl apply -f deploy/${file_yaml_ingress}     
 
 # Clear orphaned replicasets
     - kubectl -n "$CI_COMMIT_BRANCH" get rs -o json|jq -r '.items[] | select(.spec.replicas | contains(0)) | " \(.metadata.name)"'
     - sleep 40
-    - eval $(kubectl -n "$CI_COMMIT_BRANCH" get rs -o json|jq -r '.items[] | select(.spec.replicas | contains(0)) | "kubectl delete rs -n $CI_COMMIT_BRANCH \(.metadata.name)"')    
-#
+    - eval $(kubectl -n "$CI_COMMIT_BRANCH" get rs -o json|jq -r '.items[] | select(.spec.replicas | contains(0)) | "kubectl delete rs -n $CI_COMMIT_BRANCH \(.metadata.name)"')  
