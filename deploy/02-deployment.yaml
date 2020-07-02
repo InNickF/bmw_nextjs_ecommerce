@@ -22,6 +22,11 @@ spec:
         - containerPort: 80
         - containerPort: 5432
         env:
+          - name: API_URL
+            valueFrom:
+              secretKeyRef:
+                name: campo_gitlab_ci-env
+                key: API_URL
           - name: PORT
             valueFrom:
               secretKeyRef:
