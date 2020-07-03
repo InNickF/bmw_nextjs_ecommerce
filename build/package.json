@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start:dev": "NODE_ENV=dev API_URL=https://api.arepa.site node server.js ",
+    "start:dev": "NODE_ENV=dev  node server.js ",
     "test": "npm run lint",
     "clean-cache": "rimraf -rf ./node_modules/.cache",
-    "start": "NODE_ENV=production API_URL=https://api.arepa.site node server.js"
+    "start": "NODE_ENV=production  node server.js"
   },
   "dependencies": {
     "@material-ui/core": "4.5.1",

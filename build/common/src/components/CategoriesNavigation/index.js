@@ -86,14 +86,6 @@ function DefaultItems({ setNextState, logout, isLogged, toggleClass, categories 
           </ItemLink>
         </Link>
       </ListItem>
-      <ListItem addAnimation={toggleClass}>
-        <ItemLink onClick={() => {
-          localStorage.clear();
-          sessionStorage.clear();
-        }}>
-          <a >Borrar LocalStorage</a>
-        </ItemLink>
-      </ListItem>
       {isLogged && (
         <ListItem addAnimation={toggleClass}>
           <Link route="wishlist">
