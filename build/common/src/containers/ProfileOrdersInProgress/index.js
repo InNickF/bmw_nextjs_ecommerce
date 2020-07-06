@@ -41,6 +41,7 @@ function OrdersInProgress({
             let iva = (priceAvalidable * 16) / 100;
             let priceNotIva = priceAvalidable - iva;
             let totalAvalidable = priceNotIva + iva;
+            console.log(order)
             return (
               <OrderInProgressCard
                 key={detail.id}
@@ -55,7 +56,7 @@ function OrdersInProgress({
                 userName={userName}
                 orderId={order.id}
                 statusId={order.orderStatusId}
-                trackingCode={order.delivery}
+                trackingCode={order.transactionCode}
                 goToProduct={() => redirectToProduct(detail.productId)}
               />
             );
