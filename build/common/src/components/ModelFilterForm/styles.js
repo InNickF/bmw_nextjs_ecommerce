@@ -7,9 +7,8 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 85%;
   margin: 0 auto;
-  width: 100vw;
+  width: 100%;
   ${media.lessThan('tablet')`
   width: 100%;
     display: block;
