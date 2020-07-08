@@ -246,7 +246,7 @@ export function* getSeriesAndModels(action) {
 // GET PRODUCTS
 
 export function* getProductsSaga({ query }) {
-  console.log(query)
+
   try {
     if (query.chassis) {
       yield call(getProductsByChassis, { ...query, chassis: query.chassis });
@@ -370,19 +370,25 @@ export function* getProductsByParamCategory({
     );
 
     yield put(productActions.setProducts(productsResult.data));
-    console.log(productsResult.data)
     let closest;
     const today = new Date()
     const toYear = today.getFullYear()
-    productsResult.data.find(product => {
-      return closest = product.productVariations.reduce(
-        (acc, loc) =>
-          acc.yearStart < loc.yearStart
-            ? acc
-            : loc
-      )
+    productsResult.data.map(product => {
+      /* console.log(product.productVariations, "data") */
+      if (product.productVariations.length > 0) {
+        console.log("deberia entrar")
+        closest = product.productVariations.reduce(
+          (acc, loc) =>
+            closest?.yearStart > acc?.yearStart ?
+              acc?.yearStart < loc?.yearStart
+                ? acc
+                : loc
+              : closest
+        )
+      }
     })
-    const fromYear = closest.yearStart
+    const fromYear = closest?.yearStart ? closest?.yearStart : 2000
+    /* console.log(fromYear, closest) */
     const years = Array(toYear - fromYear + 1)
       .fill()
       .map(
@@ -390,6 +396,7 @@ export function* getProductsByParamCategory({
       )
       .reverse()
 
+    /* console.log(years, "testeo") */
     yield put(productActions.setYears(years));
   } catch (e) {
     yield put(appActions.setError(e.message));
