@@ -80,7 +80,7 @@ class Products extends Component {
 
   setValues(values) {
     this.multiPropsFilter(this.state.filtersAcum);
-    let newProducts = this.state.productsAll.filter((product) => {
+    let newProducts = this.props.products.filter((product) => {
       return product.price >= values.min && product.price <= values.max;
     });
     this.setState({ productsAll: newProducts, values: values });
@@ -817,16 +817,15 @@ class Products extends Component {
                           );
                         })}
                     </FiltersContainerList>
-                    {products.length ?
-                      <Collapsible trigger="Precio" open={true}>
-                        <PriceSlider
-                          prices2={this.props.products}
-                          setValues={(data) => this.setValues(data)}
-                          values={this.state.values}
-                        />
-                      </Collapsible>
-                      : ""
-                    }
+
+                    <Collapsible trigger="Precio" open={true}>
+                      <PriceSlider
+                        prices2={this.props.products}
+                        setValues={(data) => this.setValues(data)}
+                        values={this.state.values}
+                      />
+                    </Collapsible>
+
                     <BtnCloseModalFilter>
                       <button style={{ background: '#efefef' }} onClick={() => {
                         this.acum = {};
