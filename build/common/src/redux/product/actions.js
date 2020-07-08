@@ -18,6 +18,7 @@ const { Types, Creators } = createActions({
   productsWantread: ['products'],
   setModels: ['models'],
   setSeries: ['series'],
+  setYears: ['years'],
   setCompatibility: ['compatibility'],
   setProductsStatus: ['status'],
   setProductsCount: ['count'],
