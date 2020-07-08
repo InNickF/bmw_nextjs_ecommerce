@@ -100,7 +100,6 @@ export default class {
         offer
       }
     }
-
     return request.post(endpoints.productsByCategory, data)
   }
 

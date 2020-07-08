@@ -35,13 +35,17 @@ const setCurrentCategory = (state, { category }) => {
 const setProductsInPart = (state, { products, inAppPart }) =>
   state.setIn(['productsInAppPart', inAppPart], fromJS(products))
 
-const setProducts = (state, { products }) => state.set('products', fromJS(products))
+const setProducts = (state, { products }) =>
+  state.set('products', fromJS(products))
 
 const setProductsWantread = (state, { products }) =>
   state.set('productsWantread', fromJS(products))
 
 const setSeries = (state, { series }) =>
   state.setIn(['modelFilter', 'series'], fromJS(series))
+
+const setYears = (state, { years }) =>
+  state.setIn(['modelFilter', 'years'], years)
 
 const setModels = (state, { models }) =>
   state.setIn(['modelFilter', 'models'], fromJS(models))
@@ -84,6 +88,7 @@ const reducer = createReducer(INITIAL_STATE, {
   [Actions.SET_CURRENT_CATEGORY]: setCurrentCategory,
   [Actions.SET_PRODUCTS_IN_PART]: setProductsInPart,
   [Actions.SET_PRODUCTS]: setProducts,
+  [Actions.SET_YEARS]: setYears,
   [Actions.SET_SERIES]: setSeries,
   [Actions.SET_COMPATIBILITY]: setCompatibility,
   [Actions.SET_MODELS_COMPABILITY]: setModelsCompability,
