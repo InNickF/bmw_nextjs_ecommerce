@@ -60,7 +60,8 @@ class Autogermana extends App {
           <GlobalStyle />
           {/* <GlobalStyleHome /> */}
           <GlobalStyleIndex />
-          <AppWrapper {...pageProps} brandId={process.env.BRAND_ID}>
+          {parseInt(process.env.BRAND_ID) === 3 && <img style={{ width: "100%" }} src={'https://res.cloudinary.com/cacaotics/image/upload/v1584143118/bmw-all.png'} alt='logo BMW' />}
+        {/*   <AppWrapper {...pageProps} brandId={process.env.BRAND_ID}>
             <HeaderAdvertisement />
             <Header
               isHome={this.props.isHome}
@@ -69,7 +70,7 @@ class Autogermana extends App {
             />
             <Component {...pageProps} />
             <Footer />
-          </AppWrapper>
+          </AppWrapper> */}
         </ThemeProvider>
       </Provider>
     );
