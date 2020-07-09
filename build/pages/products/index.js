@@ -178,7 +178,7 @@ class Products extends Component {
         prevProps.breadcrumbs[0].label.includes("ACCESORIOS") && prevProps.breadcrumbs[prevProps.breadcrumbs.length - 1].label != "LLANTAS" && this.props.compatibility.model && this.props.compatibility.serie) {
         let result = prevProps.products.filter(product => {
           return product.productVariations.some(variation => {
-            return ((variation.vehicleModelId == prevProps.compatibility.model.id && variation.vehicleSerieId == prevProps.compatibility.serie.id && variation.yearStart >= prevProps.compatibility.year && variation.yearEnd <= prevProps.compatibility.year) || (variation.vehicleSerieId == 147))
+            return ((variation.vehicleModelId == prevProps.compatibility.model.id && variation.vehicleSerieId == prevProps.compatibility.serie.id && variation.yearStart <= prevProps.compatibility.year && variation.yearEnd >= prevProps.compatibility.year) || (variation.vehicleSerieId == 147))
           })
         })
         switch (this.state.currentSort) {
@@ -240,7 +240,7 @@ class Products extends Component {
       if (prevProps.compatibility.model && prevProps.compatibility.serie) {
         let result = prevProps.products.filter(product => {
           return product.productVariations.some(variation => {
-            return ((variation.vehicleModelId == prevProps.compatibility.model.id && variation.vehicleSerieId == prevProps.compatibility.serie.id && variation.yearStart >= prevProps.compatibility.year && variation.yearEnd <= prevProps.compatibility.year) ||
+            return ((variation.vehicleModelId == prevProps.compatibility.model.id && variation.vehicleSerieId == prevProps.compatibility.serie.id && variation.yearStart <= prevProps.compatibility.year && variation.yearEnd >= prevProps.compatibility.year) ||
               (variation.vehicleSerieId == 147)
             )
           })
@@ -437,7 +437,7 @@ class Products extends Component {
     if (this.props.breadcrumbs[0]?.label.includes("ACCESORIOS") && !(this.props.breadcrumbs[this.props.breadcrumbs.length - 1].label.includes("LLANTAS")) && this.props.compatibility.model && this.props.compatibility.serie) {
       newProducts = newProducts.filter(product => {
         return product.productVariations.some(variation => {
-          return ((variation.vehicleModelId == this.props.compatibility.model.id && variation.vehicleSerieId == this.props.compatibility.serie.id && variation.yearStart >= this.props.compatibility.year && variation.yearEnd <= this.props.compatibility.year) || (variation.vehicleSerieId == 147))
+          return ((variation.vehicleModelId == this.props.compatibility.model.id && variation.vehicleSerieId == this.props.compatibility.serie.id && variation.yearStart <= this.props.compatibility.year && variation.yearEnd >= this.props.compatibility.year) || (variation.vehicleSerieId == 147))
         })
       })
       /* this.setState({ productsAll: result }); */
