@@ -73,7 +73,11 @@ class Blog extends Component {
 
     return (
       <Fragment>
-        <GenerateTags title='Blog' url={originalUrl} />
+        <GenerateTags
+          title='BMW Shop Colombia | Novedades '
+          url={originalUrl}
+          descriptionShort="Encuentra aquí las últimas noticias, colecciones, videos y artículos de tu interés. Suscríbete a nuestro newsletter y recibe información de primera mano."
+        />
         <SeparatorTop />
         <Wrapper>
           <TitleNovedades>Blog</TitleNovedades>
