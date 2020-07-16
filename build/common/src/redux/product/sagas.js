@@ -376,7 +376,6 @@ export function* getProductsByParamCategory({
     productsResult.data.map(product => {
       /* console.log(product.productVariations, "data") */
       if (product.productVariations.length > 0) {
-        console.log("deberia entrar")
         closest = product.productVariations.reduce(
           (acc, loc) =>
             closest?.yearStart > acc?.yearStart ?
