@@ -571,7 +571,6 @@ class Products extends Component {
 
     const sort = query.order ? query.order.replace(" ", "-") : "";
     const currentSort = this.state.currentSort;
-
     return (
       <>
         <GenerateTags
@@ -645,10 +644,10 @@ class Products extends Component {
                           }} key={i}>
                             <img
                               src={"/static/images/tires/" + item}
-                              className={this.acum && this.acum.productBrand && this.acum.productBrand.toLowerCase() == item.substring(0, item.length - 4) ? "selected-brand" : ""}
+                              className={this.acum && this.acum.productBrand && this.acum.productBrand.toUpperCase() == item.substring(0, item.length - 4).toUpperCase() ? "selected-brand" : ""}
                               onClick={() => {
                                 this.multiPropsFilter({
-                                  productBrand: this.acum && this.acum.productBrand && this.acum.productBrand.toLowerCase() == item.substring(0, item.length - 4) ? "" : item.charAt(0).toUpperCase() + item.slice(1).substring(0, item.length - 5)
+                                  productBrand: this.acum && this.acum.productBrand && this.acum.productBrand.toUpperCase() == item.substring(0, item.length - 4).toUpperCase() ? "" : item.substring(0, item.length - 4).toUpperCase()
                                 })
                               }}
                               alt={item.substring(0, item.length - 3)}
