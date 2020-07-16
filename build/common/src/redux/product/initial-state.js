@@ -1,7 +1,7 @@
 import { fromJS } from 'immutable'
 
 const today = new Date()
-const fromYear = 1970
+const fromYear = 2000
 const toYear = today.getFullYear()
 const years = Array(toYear - fromYear + 1)
   .fill()
