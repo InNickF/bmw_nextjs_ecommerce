@@ -510,13 +510,7 @@ export function* getProductsByQueryString({ queryString, order, page }) {
             },
             brandId: process.env.BRAND_ID,
             active: true,
-            isFather: true,
-            stock: {
-              gt: 0,
-            },
-            price: {
-              gt: 0,
-            },
+            isFather: true
           },
           {
             description: {
@@ -526,13 +520,7 @@ export function* getProductsByQueryString({ queryString, order, page }) {
             },
             brandId: process.env.BRAND_ID,
             isFather: true,
-            active: true,
-            stock: {
-              gt: 0,
-            },
-            price: {
-              gt: 0,
-            },
+            active: true
           },
           {
             sku: {
@@ -542,13 +530,7 @@ export function* getProductsByQueryString({ queryString, order, page }) {
             },
             brandId: process.env.BRAND_ID,
             isFather: true,
-            active: true,
-            stock: {
-              gt: 0,
-            },
-            price: {
-              gt: 0,
-            },
+            active: true
           },
           {
             slug: {
@@ -558,13 +540,7 @@ export function* getProductsByQueryString({ queryString, order, page }) {
             },
             brandId: process.env.BRAND_ID,
             isFather: true,
-            active: true,
-            stock: {
-              gt: 0,
-            },
-            price: {
-              gt: 0,
-            },
+            active: true
           },
         ],
       },
