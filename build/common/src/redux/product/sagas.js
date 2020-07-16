@@ -378,11 +378,11 @@ export function* getProductsByParamCategory({
       if (product.productVariations.length > 0) {
         closest = product.productVariations.reduce(
           (acc, loc) =>
-            closest?.yearStart > acc?.yearStart ?
-              acc?.yearStart < loc?.yearStart
+            closest?.yearStart < acc?.yearStart ?
+              closest
+              : acc?.yearStart < loc?.yearStart
                 ? acc
                 : loc
-              : closest
         )
       }
     })
