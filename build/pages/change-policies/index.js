@@ -327,6 +327,9 @@ class Privacy extends Component {
                 <li>
                 Desgaste natural, excepto si se evidencia que la falla es resultado de defecto de material. 
                 </li>
+                <li>
+                Las partes de desgaste natural (bujías, de ignición, plumillas, fusibles, bombillas, pastillas y discos de freno, amortiguadores, tubos de escape, embrague y llantas) excepto si se evidencia que las fallas son resultado de defecto de material.
+                </li>
               </ol>
               <p>
               Se consideran partes de desgaste natural: Cremalleras, cierres de velcro, cadenas de bicicleta, llantas de Baby Racers, vidrios de reloj, correa/pulso de reloj, lentes de gafas, minas de lapicero, baterías de otros productos, etc. 

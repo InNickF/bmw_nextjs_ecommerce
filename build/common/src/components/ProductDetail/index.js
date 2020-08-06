@@ -824,7 +824,7 @@ class ProductDetail extends React.Component {
           closeModal={() => this.toggleState('isDetailDialogVisible')}
         >
           <SpecificationsModal>
-            <ModalTitle>Especificaciones</ModalTitle>
+            <ModalTitle>Especificaciones {seeTire && '(*)'}</ModalTitle>
             <h4>Características</h4>
             <p>Material: {product.material || 'No especificado'}</p>
             <p>Detalles adicionales:</p>
