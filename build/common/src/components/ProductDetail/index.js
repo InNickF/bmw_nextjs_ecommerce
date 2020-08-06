@@ -777,7 +777,7 @@ class ProductDetail extends React.Component {
                 <p>{product.description}</p>
               </Collapsible>
             </div>
-            <Collapsible trigger={seeTire ? 'Especificaciones (*)' : 'Especificaciones'} open={true}>
+            <Collapsible trigger="Especificaciones" open={true}>
               <SpecificationsModal>
                 <p> <strong>Material:</strong> {product.material || 'No especificado'}</p>
                 {!!(product.attributevalues && product.attributevalues.length) && (
@@ -789,7 +789,7 @@ class ProductDetail extends React.Component {
                   <p><strong>Peso:</strong> {product.weight} g</p>
                   : ''
                 }
-                <p><strong>Garantía:</strong> {product.warrantyYear} años</p>
+                <p><strong>Garantía:</strong> {product.warrantyYear} años{seeTire && '(*)'}</p>
                 {!isLifeStyle && (
                   <Fragment>
                     <p>
