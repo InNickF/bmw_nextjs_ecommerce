@@ -777,7 +777,7 @@ class ProductDetail extends React.Component {
                 <p>{product.description}</p>
               </Collapsible>
             </div>
-            <Collapsible trigger="Especificaciones" open={true}>
+            <Collapsible trigger={seeTire  ? 'Especificaciones (*)' : 'Especificaciones'} open={true}>
               <SpecificationsModal>
                 <p> <strong>Material:</strong> {product.material || 'No especificado'}</p>
                 {!!(product.attributevalues && product.attributevalues.length) && (
@@ -824,7 +824,7 @@ class ProductDetail extends React.Component {
           closeModal={() => this.toggleState('isDetailDialogVisible')}
         >
           <SpecificationsModal>
-            <ModalTitle>Especificaciones {seeTire && '(*)'}</ModalTitle>
+            <ModalTitle>Especificaciones</ModalTitle>
             <h4>Características</h4>
             <p>Material: {product.material || 'No especificado'}</p>
             <p>Detalles adicionales:</p>
