@@ -1,6 +1,6 @@
-![Project Logo](https://bmwshop.com.co/images/BMW_Grey_Logo.svg)
 
-# [BMW](https://mitienda.tiendosqui.com/)
+
+# [BMW](https://bmwshop.com.co)
 
 ## Instalación
 
