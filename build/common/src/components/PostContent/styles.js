@@ -15,6 +15,11 @@ export const Content = styled.div`
   .content {
     ${props => props.theme.font.family.normal};
   }
+
+  .content img {
+    height: auto;
+    max-width: 100%;
+  }
 `
 
 export const Text = styled.div`
