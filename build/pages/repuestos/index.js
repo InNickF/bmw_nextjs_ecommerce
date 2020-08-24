@@ -13,9 +13,25 @@ const Repuestos = () => {
 			</Helmet>
 			<Wrapper>
 				<TitleContainer>
-					<h1>
-						REPUESTOS ORIGINALES PARA TU BMW.
-					</h1>
+					<div style={{
+						background:"url(https://repuestos-landing.s3.us-east-2.amazonaws.com/banner-bmw.jpg)",
+						minHeight: "350px",
+						backgroundSize: "cover",
+						backgroundRepeat: "no-repeat",
+						backgroundPosition: "center",
+						display: "flex",
+						alignItems: "center",
+					}}>
+						<h1 style={{
+							paddingLeft: "16px",
+							color: "white",
+							fontWeight: "bold!important",
+							textShadow: "rgb(0, 0, 0) 2px 0px 4px",
+							fontFamily: "BMWGroup-Bold',sans-serif !important;"
+						}}>
+							REPUESTOS ORIGINALES PARA TU BMW.
+						</h1>
+					</div>
 				</TitleContainer>
 				<ContainerText>
 					<p style={{marginTop: "20px"}}>
@@ -23,7 +39,7 @@ const Repuestos = () => {
 						te proporcionan un rendimiento óptimo, gracias al desarrollo tecnológico y el cumplimiento de
 						estrictos estándares de calidad de BMW GROUP. Nuestro compromiso es brindarte la mejor
 						experiencia dentro y fuera de tu carro, por eso todos nuestros repuestos cuentan con una
-						garantía de 24 meses.
+						garantía de 24 meses por defecto de producto.
 					</p>
 				</ContainerText>
 				<ContainerText>
@@ -58,15 +74,18 @@ const Repuestos = () => {
 				<ContainerText>
 					<Row>
 						<Column>
-							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "center"}}>Escobillas
-								BMW</h2>
+							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "center"}}>
+								Plumillas BMW
+							</h2>
 							<p style={{padding: "0 16px"}}>
-								Con las escobillas BMW podrás mantener siempre una visibilidad y seguridad óptimas,
+								Con las plumillas BMW podrás mantener siempre una visibilidad y seguridad óptimas,
 								incluso en situaciones críticas. Tienen un rendimiento perfecto durante el limpiado
 								gracias a la distribución uniforme de las fuerzas y la elevada presión. Son capaces de
 								reconocer, gracias a la tecnología infrarroja, las gotas de lluvia que caen sobre el
 								parabrisas, lo que le permite adaptar la velocidad de los limpiaparabrisas de acuerdo
 								con la intensidad de la lluvia.
+
+
 							</p>
 							<img style={{maxHeight: "292px"}}
 								 src="https://repuestos-landing.s3.us-east-2.amazonaws.com/bmw+r3.jpg" width="100%"/>
@@ -85,7 +104,8 @@ const Repuestos = () => {
 				</ContainerText>
 
 				<ContainerText>
-					<p style={{marginTop: "20px"}}>Puedes recibir asesoría ó realizar tu compra asistida a través de nuestro WhatsApp y nuestro chat
+					<p style={{marginTop: "20px"}}>Puedes recibir asesoría ó realizar tu compra asistida a través de
+						nuestro WhatsApp y nuestro chat
 						online.</p>
 				</ContainerText>
 
