@@ -9,12 +9,12 @@ const Repuestos = () => {
 	return (
 		<Fragment>
 			<Helmet>
-				<title>BMW Repuestos</title>
+				<title>Repuestos BMW</title>
 			</Helmet>
 			<Wrapper>
 				<TitleContainer>
 					<div style={{
-						background:"url(https://repuestos-landing.s3.us-east-2.amazonaws.com/banner-bmw.jpg)",
+						background: "url(https://repuestos-landing.s3.us-east-2.amazonaws.com/banner-bmw.jpg)",
 						minHeight: "350px",
 						backgroundSize: "cover",
 						backgroundRepeat: "no-repeat",
@@ -49,8 +49,8 @@ const Repuestos = () => {
 							flexDirection: "column",
 							justifyContent: "space-between",
 						}}>
-							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "center"}}>Baterías BMW</h2>
-							<p style={{padding: "0 16px"}}>
+							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "left"}}>Baterías BMW</h2>
+							<p style={{padding: "0"}}>
 								Cuenta con la tecnología EfficientDynamics, la cual ofrece una gestión inteligente de la
 								energía y actualmente garantiza una movilidad sustentable. La batería BMW tiene una
 								larga vida útil, aún después de periodos largos de inmovilización. Permite mantener un
@@ -65,8 +65,8 @@ const Repuestos = () => {
 							flexDirection: "column",
 							justifyContent: "space-between",
 						}}>
-							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "center"}}>Aceite BMW</h2>
-							<p style={{padding: "0 16px"}}>
+							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "left"}}>Aceite BMW</h2>
+							<p style={{padding: "0"}}>
 								Responde a las exigencias de los motores de BMW permitiendo así un alto rendimiento,
 								eficiencia y duración. Ofrece una mayor viscosidad, lo cual mejora los arranques en
 								frío. Gracias al desarrollo exclusivo y de alta tecnología permite reducir el consumo de
@@ -86,18 +86,16 @@ const Repuestos = () => {
 							flexDirection: "column",
 							justifyContent: "space-between",
 						}}>
-							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "center"}}>
+							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "left"}}>
 								Plumillas BMW
 							</h2>
-							<p style={{padding: "0 16px"}}>
+							<p style={{padding: "0"}}>
 								Con las plumillas BMW podrás mantener siempre una visibilidad y seguridad óptimas,
 								incluso en situaciones críticas. Tienen un rendimiento perfecto durante el limpiado
 								gracias a la distribución uniforme de las fuerzas y la elevada presión. Son capaces de
 								reconocer, gracias a la tecnología infrarroja, las gotas de lluvia que caen sobre el
 								parabrisas, lo que le permite adaptar la velocidad de los limpiaparabrisas de acuerdo
 								con la intensidad de la lluvia.
-
-
 							</p>
 							<img style={{maxHeight: "292px"}}
 								 src="https://repuestos-landing.s3.us-east-2.amazonaws.com/bmw+r3.jpg" width="100%"/>
@@ -107,11 +105,12 @@ const Repuestos = () => {
 							flexDirection: "column",
 							justifyContent: "space-between",
 						}}>
-							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "center"}}>Firenos BMW</h2>
-							<p style={{padding: "0 16px"}}>
-								Todos nuestros modelos están equipados por este sistema tanto en el eje delantero como
-								en el trasero, esto es debido a las grandes ventajas del sistema como, mejor frenada en
-								condiciones adversas, mejora en la disipación del calor.
+							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "left"}}>Pastillas de freno
+								BMW</h2>
+							<p style={{padding: "0"}}>
+								Garantizan la óptima interacción con el sistema de frenos, para un mayor confort de
+								manejo sin ruidos molestos. Proporcionan un menor desgaste por fricción, ayudando a
+								preservar su vida útil y un menor impacto al medioambiente.
 							</p>
 							<img style={{maxHeight: "292px"}}
 								 src="https://repuestos-landing.s3.us-east-2.amazonaws.com/bmw+r4.jpg" width="100%"/>
