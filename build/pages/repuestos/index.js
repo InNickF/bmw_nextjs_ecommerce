@@ -44,7 +44,11 @@ const Repuestos = () => {
 				</ContainerText>
 				<ContainerText>
 					<Row>
-						<Column>
+						<Column style={{
+							display: "flex",
+							flexDirection: "column",
+							justifyContent: "space-between",
+						}}>
 							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "center"}}>Baterías BMW</h2>
 							<p style={{padding: "0 16px"}}>
 								Cuenta con la tecnología EfficientDynamics, la cual ofrece una gestión inteligente de la
@@ -56,7 +60,11 @@ const Repuestos = () => {
 							<img style={{maxHeight: "292px"}}
 								 src="https://repuestos-landing.s3.us-east-2.amazonaws.com/bmw+r1.jpg" width="100%"/>
 						</Column>
-						<Column>
+						<Column style={{
+							display: "flex",
+							flexDirection: "column",
+							justifyContent: "space-between",
+						}}>
 							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "center"}}>Aceite BMW</h2>
 							<p style={{padding: "0 16px"}}>
 								Responde a las exigencias de los motores de BMW permitiendo así un alto rendimiento,
@@ -73,7 +81,11 @@ const Repuestos = () => {
 
 				<ContainerText>
 					<Row>
-						<Column>
+						<Column style={{
+							display: "flex",
+							flexDirection: "column",
+							justifyContent: "space-between",
+						}}>
 							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "center"}}>
 								Plumillas BMW
 							</h2>
@@ -90,7 +102,11 @@ const Repuestos = () => {
 							<img style={{maxHeight: "292px"}}
 								 src="https://repuestos-landing.s3.us-east-2.amazonaws.com/bmw+r3.jpg" width="100%"/>
 						</Column>
-						<Column>
+						<Column style={{
+							display: "flex",
+							flexDirection: "column",
+							justifyContent: "space-between",
+						}}>
 							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "center"}}>Firenos BMW</h2>
 							<p style={{padding: "0 16px"}}>
 								Todos nuestros modelos están equipados por este sistema tanto en el eje delantero como
