@@ -108,9 +108,9 @@ const Repuestos = () => {
 							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "left"}}>Pastillas de freno
 								BMW</h2>
 							<p style={{padding: "0"}}>
-								Gracias a la combinación de materiales que brindan los mejores valores en respuesta 
-								y máximo confort, para un mayor confort de manejo sin ruidos molestos. Proporcionan 
-								un menor desgaste por fricción, ayudando a preservar su vida útil y un menor impacto al medioambiente.
+								Garantizan la óptima interacción con el sistema de frenos, gracias a la combinación de 
+								materiales que brindan los mejores valores en respuesta y máximo confort. Se caracterizan
+								por ofrecer gran desempeño en cualquier condición climática.
 							</p>
 							<img style={{maxHeight: "292px"}}
 								 src="https://repuestos-landing.s3.us-east-2.amazonaws.com/bmwr4.png" width="100%"/>
