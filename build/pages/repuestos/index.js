@@ -71,7 +71,7 @@ const Repuestos = () => {
 								eficiencia y duración. Ofrece una mayor viscosidad, lo cual mejora los arranques en
 								frío. Gracias al desarrollo exclusivo y de alta tecnología permite reducir el consumo de
 								combustible, prolonga la vida útil del motor, y además, mantiene una limpieza activa que
-								protege las piezas principales.
+								protege las principales piezas del motor.
 							</p>
 							<img style={{maxHeight: "292px"}}
 								 src="https://repuestos-landing.s3.us-east-2.amazonaws.com/bmw+r2.jpg" width="100%"/>
