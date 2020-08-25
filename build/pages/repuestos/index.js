@@ -36,9 +36,9 @@ const Repuestos = () => {
 				<ContainerText>
 					<p style={{marginTop: "20px"}}>
 						Con BMW Shop podrás tener la mejor asesoría sin salir de casa, para que encuentres repuestos que
-						te proporcionan un rendimiento óptimo, gracias al desarrollo tecnológico y el cumplimiento de
+						proporcionan un rendimiento óptimo a tu BMW, gracias al desarrollo tecnológico y el cumplimiento de
 						estrictos estándares de calidad de BMW GROUP. Nuestro compromiso es brindarte la mejor
-						experiencia dentro y fuera de tu carro, por eso todos nuestros repuestos cuentan con una
+						experiencia de compra, por eso todos nuestros repuestos cuentan con una
 						garantía de 24 meses por defecto de producto.
 					</p>
 				</ContainerText>
@@ -108,12 +108,12 @@ const Repuestos = () => {
 							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "left"}}>Pastillas de freno
 								BMW</h2>
 							<p style={{padding: "0"}}>
-								Garantizan la óptima interacción con el sistema de frenos, para un mayor confort de
-								manejo sin ruidos molestos. Proporcionan un menor desgaste por fricción, ayudando a
-								preservar su vida útil y un menor impacto al medioambiente.
+								Gracias a la combinación de materiales que brindan los mejores valores en respuesta 
+								y máximo confort, para un mayor confort de manejo sin ruidos molestos. Proporcionan 
+								un menor desgaste por fricción, ayudando a preservar su vida útil y un menor impacto al medioambiente.
 							</p>
 							<img style={{maxHeight: "292px"}}
-								 src="https://repuestos-landing.s3.us-east-2.amazonaws.com/bmw+r4.jpg" width="100%"/>
+								 src="https://repuestos-landing.s3.us-east-2.amazonaws.com/bmwr4.png" width="100%"/>
 						</Column>
 					</Row>
 				</ContainerText>
