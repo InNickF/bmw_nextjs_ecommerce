@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import Helmet from "react-helmet";
-import { Accordion, Card, Button} from 'react-bootstrap';
+import {Accordion, Card, Button, Form} from 'react-bootstrap';
 import {Container, HeroContent, Inner, Row, ColLg12, Boxes, SmartBox, Features} from "../../styles/repuestos";
 
 const Repuestos = () => {
@@ -34,11 +34,8 @@ const Repuestos = () => {
 														<span className="text-primary bold">1</span>
 													</ColLg12>
 													<ColLg12>
-														<p className="thin text-uppercase">REGISTER</p>
 														<p>
-															There are many variations of passages of Lorem Ipsum
-															available, but the majority have suffered alteration in some
-															form.
+															Asegúrate de conocer el número de chasis o placa.
 														</p>
 													</ColLg12>
 												</Row>
@@ -49,11 +46,9 @@ const Repuestos = () => {
 														<span className="text-primary bold">2</span>
 													</ColLg12>
 													<ColLg12>
-														<p className="thin text-uppercase">SELECT PLAN</p>
 														<p>
-															There are many variations of passages of Lorem Ipsum
-															available, but the majority have suffered alteration in some
-															form.
+															Contacta a  nuestro asesor dando click en el botón.
+															<img style={{width: '80px', marginLeft:'8px'}} src="https://repuestos-landing.s3.us-east-2.amazonaws.com/Captura+de+pantalla+de+2020-08-28+15-19-09.png"/>
 														</p>
 													</ColLg12>
 												</Row>
@@ -66,11 +61,8 @@ const Repuestos = () => {
 														<span className="text-primary bold">3</span>
 													</ColLg12>
 													<ColLg12>
-														<p className="thin text-uppercase">ENJOY</p>
 														<p>
-															There are many variations of passages of Lorem Ipsum
-															available, but the majority have suffered alteration in some
-															form.
+															Compra y recibe en tu casa.
 														</p>
 													</ColLg12>
 												</Row>
@@ -177,7 +169,7 @@ const Repuestos = () => {
 										</p>
 									</ColLg12>
 									<ColLg12>
-										<p style={{textAlign: 'left'}}>
+										<p className="espacio-img" style={{textAlign: 'left'}}>
 											Garantizan la óptima interacción con el sistema de frenos, gracias a la
 											combinación de materiales que brindan los mejores valores en respuesta y
 											máximo confort. Se caracterizan por ofrecer gran desempeño en cualquier
@@ -193,7 +185,6 @@ const Repuestos = () => {
 					</Row>
 				</Container>
 			</Features>
-
 			<div style={{
 				padding: '100px 0',
 				background: 'rgba(236, 240, 241, 0.3)'
@@ -208,32 +199,56 @@ const Repuestos = () => {
 								<Card>
 									<Card.Header>
 										<Accordion.Toggle as={Button} variant="text" eventKey="0">
-											Asegúrate de conocer el número de chasis o placa.
+											¿Necesitas asesoría?
 										</Accordion.Toggle>
 									</Card.Header>
 									<Accordion.Collapse eventKey="0">
-										<Card.Body>Hello! I'm the body</Card.Body>
+										<Card.Body>
+											Dale click al botón que encontrarás dentro de la página, allí podrás
+											comunicarte con uno de nuestros asesores para brindarte la información
+											necesaria y resolver todas tus dudas.
+										</Card.Body>
 									</Accordion.Collapse>
 								</Card>
 								<Card>
 									<Card.Header>
 										<Accordion.Toggle as={Button} variant="text" eventKey="1">
-											Contacta a nuestro asesor dando click en el botón
-											<img style={{ marginLeft: '8px',width: '80px'}} src="https://repuestos-landing.s3.us-east-2.amazonaws.com/Captura+de+pantalla+de+2020-08-28+15-20-39.png"/>
+											¿Cuál es el tiempo de garantía de tus repuestos?
 										</Accordion.Toggle>
 									</Card.Header>
 									<Accordion.Collapse eventKey="1">
-										<Card.Body>Hello! I'm another body</Card.Body>
+										<Card.Body>
+											En BMW Shop te ofrecemos 24 meses de garantía por defecto del producto. (No
+											incluye desgastes, daños por agentes externos y/o aboyaduras).
+										</Card.Body>
 									</Accordion.Collapse>
 								</Card>
 								<Card>
 									<Card.Header>
 										<Accordion.Toggle as={Button} variant="text" eventKey="2">
-											Compra y recibe en tu casa.
+											¿Costo del envío?
 										</Accordion.Toggle>
 									</Card.Header>
 									<Accordion.Collapse eventKey="2">
-										<Card.Body>Hello! I'm another body</Card.Body>
+										<Card.Body>
+											Si tu compra es igual o mayor a $200.000 es totalmente gratis el envío. Si
+											por el contrario tu compra es menor al precio indicado, el costo del envío
+											es de $16.000.
+										</Card.Body>
+									</Accordion.Collapse>
+								</Card>
+								<Card>
+									<Card.Header>
+										<Accordion.Toggle as={Button} variant="text" eventKey="3">
+											¿Requieres una devolución?
+										</Accordion.Toggle>
+									</Card.Header>
+									<Accordion.Collapse eventKey="3">
+										<Card.Body>
+											Si tu compra es igual o mayor a $200.000 es totalmente gratis el envío. Si
+											por el contrario tu compra es menor al precio indicado, el costo del envío
+											es de $16.000.
+										</Card.Body>
 									</Accordion.Collapse>
 								</Card>
 							</Accordion>
@@ -242,6 +257,52 @@ const Repuestos = () => {
 				</Container>
 			</div>
 
+			<div style={{padding: '100px 0',}}>
+				<Container>
+					<Row>
+						<ColLg12>
+							<h1>¿Tienes alguna consulta?</h1>
+						</ColLg12>
+						<div className="col-md-6" style={{marginTop: '30px'}}>
+							<Form>
+								<Form.Group controlId="nombre">
+									<Form.Label>Nombre completo:</Form.Label>
+									<Form.Control type="text" />
+								</Form.Group>
+								<Form.Group controlId="formBasicEmail">
+									<Form.Label>Correo electronico:</Form.Label>
+									<Form.Control type="email" />
+								</Form.Group>
+
+								<Form.Group controlId="formBasicPassword">
+									<Form.Label>Telefono:</Form.Label>
+									<Form.Control type="text"/>
+								</Form.Group>
+								<Form.Group controlId="exampleForm.ControlSelect1">
+									<Form.Label>Serie</Form.Label>
+									<Form.Control as="select">
+										<option>Serie 1</option>
+										<option>Serie 2</option>
+										<option>Serie 3</option>
+										<option>Serie 4</option>
+										<option>Serie 5</option>
+										<option>Serie 6</option>
+										<option>Serie 7</option>
+										<option>Serie 8</option>
+									</Form.Control>
+								</Form.Group>
+								<Form.Group controlId="formBasicCheckbox">
+									<Form.Check type="checkbox" label="Acepto terminos y condiciones." />
+								</Form.Group>
+								<Button variant="primary" type="submit">
+									Enviar
+								</Button>
+							</Form>
+						</div>
+					</Row>
+				</Container>
+
+			</div>
 
 
 		</Fragment>

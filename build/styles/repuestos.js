@@ -40,7 +40,7 @@ export const HeroContent = styled.section`
 		bottom: 0;
     }
     h1 {
-    	line-height: .6!important;
+    	line-height: 1.3!important;
     	font-size: 3rem!important;
     	margin: 0;
     	color: inherit;
@@ -275,6 +275,9 @@ export const Features = styled.section`
 		}
 	}
     @media (min-width: 768px){
+    	.espacio-img{
+    		margin-bottom: 85px;
+    	}
 		.col-md-6 {
 			-webkit-box-flex: 0;
 			-webkit-flex: 0 0 50%;
