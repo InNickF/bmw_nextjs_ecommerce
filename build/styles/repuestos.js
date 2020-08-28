@@ -242,7 +242,7 @@ export const Features = styled.section`
     content: "";
     clear: both;
     position: relative;
-    margin-top: 224px;
+    margin-top: 70px;
     color: black;
     
     h2 {

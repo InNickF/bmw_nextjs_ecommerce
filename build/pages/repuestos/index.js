@@ -1,8 +1,6 @@
 import React, {Fragment} from 'react'
 import Helmet from "react-helmet";
-import {Wrapper, Column} from "../../common/src/components";
-import ContainerText from "../../styles/privacy";
-import {TitleContainer} from "../../styles/terms";
+import { Accordion, Card, Button} from 'react-bootstrap';
 import {Container, HeroContent, Inner, Row, ColLg12, Boxes, SmartBox, Features} from "../../styles/repuestos";
 
 const Repuestos = () => {
@@ -11,6 +9,7 @@ const Repuestos = () => {
 		<Fragment>
 			<Helmet>
 				<title>Repuestos BMW</title>
+				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
 			</Helmet>
 
 			<HeroContent>
@@ -194,6 +193,57 @@ const Repuestos = () => {
 					</Row>
 				</Container>
 			</Features>
+
+			<div style={{
+				padding: '100px 0',
+				background: 'rgba(236, 240, 241, 0.3)'
+			}}>
+				<Container>
+					<Row>
+						<ColLg12>
+							<h1>Preguntas frecuentes</h1>
+						</ColLg12>
+						<ColLg12 style={{marginTop: '3rem'}}>
+							<Accordion>
+								<Card>
+									<Card.Header>
+										<Accordion.Toggle as={Button} variant="text" eventKey="0">
+											Asegúrate de conocer el número de chasis o placa.
+										</Accordion.Toggle>
+									</Card.Header>
+									<Accordion.Collapse eventKey="0">
+										<Card.Body>Hello! I'm the body</Card.Body>
+									</Accordion.Collapse>
+								</Card>
+								<Card>
+									<Card.Header>
+										<Accordion.Toggle as={Button} variant="text" eventKey="1">
+											Contacta a nuestro asesor dando click en el botón
+											<img style={{ marginLeft: '8px',width: '80px'}} src="https://repuestos-landing.s3.us-east-2.amazonaws.com/Captura+de+pantalla+de+2020-08-28+15-20-39.png"/>
+										</Accordion.Toggle>
+									</Card.Header>
+									<Accordion.Collapse eventKey="1">
+										<Card.Body>Hello! I'm another body</Card.Body>
+									</Accordion.Collapse>
+								</Card>
+								<Card>
+									<Card.Header>
+										<Accordion.Toggle as={Button} variant="text" eventKey="2">
+											Compra y recibe en tu casa.
+										</Accordion.Toggle>
+									</Card.Header>
+									<Accordion.Collapse eventKey="2">
+										<Card.Body>Hello! I'm another body</Card.Body>
+									</Accordion.Collapse>
+								</Card>
+							</Accordion>
+						</ColLg12>
+					</Row>
+				</Container>
+			</div>
+
+
+
 		</Fragment>
 	)
 

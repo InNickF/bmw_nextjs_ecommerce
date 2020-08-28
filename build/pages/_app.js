@@ -17,8 +17,10 @@ import { GlobalStyle } from "../styles/global";
 /* import { GlobalStyleHome } from '../styles/home' */
 import { GlobalStyleIndex } from "../common/src/themes/bmw";
 import { cart as coreCart } from "../common/redux";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "nprogress/nprogress.css";
-import "animate.css";
+import "animate.css"
 import "polished";
 import "react-quill/dist/quill.snow.css";
 
