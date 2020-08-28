@@ -1,8 +1,9 @@
 import React, {Fragment} from 'react'
 import Helmet from "react-helmet";
-import {Wrapper, Column, Row} from "../../common/src/components";
+import {Wrapper, Column} from "../../common/src/components";
 import ContainerText from "../../styles/privacy";
 import {TitleContainer} from "../../styles/terms";
+import {Container, HeroContent, Inner, Row, ColLg12, Boxes, SmartBox} from "../../styles/repuestos";
 
 const Repuestos = () => {
 
@@ -11,6 +12,79 @@ const Repuestos = () => {
 			<Helmet>
 				<title>Repuestos BMW</title>
 			</Helmet>
+
+			<HeroContent>
+				<div className="fondo-header"/>
+				<Inner>
+					<Container>
+						<Row>
+							<ColLg12 className="text-side">
+								<h1 className="text-uppercase bold" style={{color: 'white'}}>Repuestos Originales</h1>
+								<h2 className="text-uppercase bold" style={{color: 'white'}}>
+									para tu BMW.
+								</h2>
+								<p className="mt-2">
+									Con BMW Shop podrás tener la mejor asesoría sin salir de casa.
+								</p>
+								<Boxes className="push-lg-2">
+									<Row>
+										<div className="col-lg-4 col-md-6 mb-5">
+											<SmartBox>
+												<Row>
+													<ColLg12>
+														<span className="text-primary bold">1</span>
+													</ColLg12>
+													<ColLg12>
+														<p className="thin text-uppercase">REGISTER</p>
+														<p>
+															There are many variations of passages of Lorem Ipsum
+															available, but the majority have suffered alteration in some
+															form.
+														</p>
+													</ColLg12>
+												</Row>
+											</SmartBox>
+											<SmartBox className="mt-5">
+												<Row>
+													<ColLg12>
+														<span className="text-primary bold">2</span>
+													</ColLg12>
+													<ColLg12>
+														<p className="thin text-uppercase">SELECT PLAN</p>
+														<p>
+															There are many variations of passages of Lorem Ipsum
+															available, but the majority have suffered alteration in some
+															form.
+														</p>
+													</ColLg12>
+												</Row>
+											</SmartBox>
+										</div>
+										<div className="col-lg-4 col-md-6 pull-lg-0">
+											<SmartBox className="item-center">
+												<Row>
+													<ColLg12>
+														<span className="text-primary bold">3</span>
+													</ColLg12>
+													<ColLg12>
+														<p className="thin text-uppercase">ENJOY</p>
+														<p>
+															There are many variations of passages of Lorem Ipsum
+															available, but the majority have suffered alteration in some
+															form.
+														</p>
+													</ColLg12>
+												</Row>
+											</SmartBox>
+										</div>
+									</Row>
+								</Boxes>
+							</ColLg12>
+						</Row>
+					</Container>
+					<div className="box-overlay"/>
+				</Inner>
+			</HeroContent>
 			<Wrapper>
 				<TitleContainer>
 					<div style={{
@@ -105,8 +179,8 @@ const Repuestos = () => {
 							flexDirection: "column",
 							justifyContent: "space-between",
 						}}>
-							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "left"}}>Pastillas de freno
-								BMW</h2>
+							<h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "left"}}>
+								Pastillas de freno BMW</h2>
 							<p style={{padding: "0"}}>
 								Garantizan la óptima interacción con el sistema de frenos, para un mayor confort de
 								manejo sin ruidos molestos. Proporcionan un menor desgaste por fricción, ayudando a

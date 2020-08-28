@@ -33,7 +33,7 @@ class Autogermana extends App {
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
-    let isHome = ctx.pathname == "/" ? true : false;
+    let isHome = ctx.pathname === "/" || ctx.pathname === "/repuestos";
     return { pageProps, isHome: isHome };
   }
 
