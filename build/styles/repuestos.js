@@ -93,7 +93,7 @@ export const HeroContent = styled.section`
 		position: absolute;
 		width: 100%;
 		height: 65%;
-		top: 56%;
+		top: 64%;
 		left: 0;
 		background: #fafafa;
 		z-index: 0;
