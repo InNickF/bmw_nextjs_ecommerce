@@ -1,9 +1,11 @@
-import React, {Fragment} from 'react'
+import React, {Fragment, useState} from 'react'
 import Helmet from "react-helmet";
 import {Accordion, Card, Button, Form} from 'react-bootstrap';
 import {Container, HeroContent, Inner, Row, ColLg12, Boxes, SmartBox, Features} from "../../styles/repuestos";
 
 const Repuestos = () => {
+
+	const [compactibilidad, setCompatibilidad] = useState();
 
 	return (
 		<Fragment>
@@ -31,7 +33,7 @@ const Repuestos = () => {
 											<SmartBox>
 												<Row>
 													<ColLg12>
-														<span className="text-primary bold">1</span>
+														<span style={{fontSize: '2.5rem'}} className="text-primary bold">1</span>
 													</ColLg12>
 													<ColLg12>
 														<p>
@@ -43,12 +45,13 @@ const Repuestos = () => {
 											<SmartBox className="mt-5">
 												<Row>
 													<ColLg12>
-														<span className="text-primary bold">2</span>
+														<span style={{fontSize: '2.5rem'}} className="text-primary bold">2</span>
 													</ColLg12>
 													<ColLg12>
 														<p>
-															Contacta a  nuestro asesor dando click en el botón.
-															<img style={{width: '80px', marginLeft:'8px'}} src="https://repuestos-landing.s3.us-east-2.amazonaws.com/Captura+de+pantalla+de+2020-08-28+15-19-09.png"/>
+															Contacta a nuestro asesor dando click en el botón.
+															<img style={{width: '80px', marginLeft: '8px'}}
+																 src="https://repuestos-landing.s3.us-east-2.amazonaws.com/Captura+de+pantalla+de+2020-08-28+15-19-09.png"/>
 														</p>
 													</ColLg12>
 												</Row>
@@ -58,7 +61,7 @@ const Repuestos = () => {
 											<SmartBox className="item-center">
 												<Row>
 													<ColLg12>
-														<span className="text-primary bold">3</span>
+														<span style={{fontSize: '2.5rem'}} className="text-primary bold">3</span>
 													</ColLg12>
 													<ColLg12>
 														<p>
@@ -245,9 +248,8 @@ const Repuestos = () => {
 									</Card.Header>
 									<Accordion.Collapse eventKey="3">
 										<Card.Body>
-											Si tu compra es igual o mayor a $200.000 es totalmente gratis el envío. Si
-											por el contrario tu compra es menor al precio indicado, el costo del envío
-											es de $16.000.
+											La devolución será válida solo por retracto. los repuestos no deben estar
+											montados en el vehículo, estar en perfecto estado y en su empaque original.
 										</Card.Body>
 									</Accordion.Collapse>
 								</Card>
@@ -267,11 +269,11 @@ const Repuestos = () => {
 							<Form>
 								<Form.Group controlId="nombre">
 									<Form.Label>Nombre completo:</Form.Label>
-									<Form.Control type="text" />
+									<Form.Control type="text"/>
 								</Form.Group>
 								<Form.Group controlId="formBasicEmail">
 									<Form.Label>Correo electronico:</Form.Label>
-									<Form.Control type="email" />
+									<Form.Control type="email"/>
 								</Form.Group>
 
 								<Form.Group controlId="formBasicPassword">
@@ -292,7 +294,7 @@ const Repuestos = () => {
 									</Form.Control>
 								</Form.Group>
 								<Form.Group controlId="formBasicCheckbox">
-									<Form.Check type="checkbox" label="Acepto terminos y condiciones." />
+									<Form.Check type="checkbox" label="Acepto terminos y condiciones."/>
 								</Form.Group>
 								<Button variant="primary" type="submit">
 									Enviar

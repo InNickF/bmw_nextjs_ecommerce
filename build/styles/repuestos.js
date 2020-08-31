@@ -76,8 +76,10 @@ export const HeroContent = styled.section`
     .mb-5 {
     	margin-bottom: 3rem!important;
 	}
-	.item-center{
-		margin-top: 10rem;
+	@media(min-width:767px) {
+		.item-center {
+			margin-top: 10rem;
+		}
 	}
 	.thin{
 		font-size: 18px;
@@ -246,7 +248,9 @@ export const Features = styled.section`
     color: black;
     
     h2 {
+    	font-size:1.2rem;
     	text-transform: inherit!important;
+    	line-height: 30px;
     }
     
     *{
@@ -268,7 +272,12 @@ export const Features = styled.section`
     	padding-right: 15px;
     	padding-left: 15px;
     }
-    
+    @media(max-width:767px){
+    	& {
+    		margin-top:220px;
+    		padding-top:50px;
+    	}
+    }
     @media (min-width: 576px){
 		.mb-sm-5 {
 			margin-bottom: 3rem!important;
