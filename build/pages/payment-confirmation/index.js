@@ -45,10 +45,10 @@ class PaymentConfirmation extends React.Component {
         <Helmet>
           <title> {payOk ? 'Confirmación de pago' : 'Pago rechazado'}</title>
         </Helmet>
+        { payOk && <FacebookPixel names={['FACEBOOK_PIXEL_POST_VENTA_09_2020']}/> }
         <ContainerFixed>
           <ContentFixed>
             <ContentCard title='Resumen de compra'>
-              { payOk && <FacebookPixel names={['FACEBOOK_PIXEL_POST_VENTA_09_2020']}/> }
               <h3>{payOk ? ` ${userName ? capitalize(this.props.user.firstName.split(/\s/)[0]) + ',' : 'Muchas '} gracias por confiar en nosotros` : `Lo sentimos ${userName ? this.props.user.firstName.split(/\s/)[0] + ',' : ''} tu pago no pudo ser procesado`}</h3>
               <h3>{payOk ? '¡tu pedido ha sido realizado con éxito!' : 'Te invitamos a intentarlo nuevamente, si tienes alguna duda no dudes en comunicarte con nosotros'}</h3>
               <ContentButtonsPayment>
