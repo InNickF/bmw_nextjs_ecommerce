@@ -89,6 +89,7 @@ import ProductCardHome from './ProductCardHome'
 import FrequentlyBuyed from './FrequentlyBuyed'
 import ActualCarCardHeader from './ActualCarCardHeader'
 import DotsLoader from './DotsLoader'
+import FacebookPixel from './FacebookPixel'
 import Column from './Column'
 import Row from './Row';
 
@@ -183,6 +184,7 @@ export {
 	FrequentlyBuyed,
 	ActualCarCardHeader,
 	DotsLoader,
+	FacebookPixel,
 	Column,
 	Row
 }
