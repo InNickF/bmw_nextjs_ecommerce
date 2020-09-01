@@ -146,6 +146,11 @@ function Header(props) {
                     </CategoriesDropdown> */}
                     {/* ${query.includes('blog') ? 'active-tab-bmw' : ''} */}
                     <CategoriesDropdown className={``}>
+                      <Link route="repuestos">
+                        <a className="nav-item">Repuestos</a>
+                      </Link>
+                    </CategoriesDropdown>
+                    <CategoriesDropdown className={``}>
                       <Link route="blog">
                         <a className="nav-item">Novedades</a>
                       </Link>

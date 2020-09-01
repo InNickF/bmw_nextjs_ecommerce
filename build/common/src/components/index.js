@@ -90,6 +90,8 @@ import FrequentlyBuyed from './FrequentlyBuyed'
 import ActualCarCardHeader from './ActualCarCardHeader'
 import DotsLoader from './DotsLoader'
 import FacebookPixel from './FacebookPixel'
+import Column from './Column'
+import Row from './Row';
 
 export {
 	Button,
@@ -183,4 +185,6 @@ export {
 	ActualCarCardHeader,
 	DotsLoader,
 	FacebookPixel
+	Column,
+	Row
 }

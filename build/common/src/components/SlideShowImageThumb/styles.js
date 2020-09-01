@@ -57,7 +57,7 @@ export const ContentImageZoom = styled.div`
   margin-left: 81px;
 
   img{        
-  height:auto;!important
+  height:auto!important;
   background: #ffff;
 	-webkit-animation: fade-in .8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	        animation: fade-in .8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;

@@ -789,7 +789,7 @@ class ProductDetail extends React.Component {
                   <p><strong>Peso:</strong> {product.weight} g</p>
                   : ''
                 }
-                <p><strong>Garantía:</strong> {product.warrantyYear} años</p>
+                <p><strong>Garantía:</strong> {product.warrantyYear} años{seeTire && '(*)'}</p>
                 {!isLifeStyle && (
                   <Fragment>
                     <p>
