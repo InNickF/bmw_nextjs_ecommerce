@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { CardWithHeadImage } from '../'
+import { CardWithHeadImage, Button } from '../'
 
 import { Container } from './styles'
 // recibo la variable title,la cual tiene el titulo del post que se encuentra como principal
@@ -13,10 +13,29 @@ function CardPostList ({ posts, title }) {
   if (posts.length < 3) {
     justi.justifyContent = 'flex-start'
   }
-  posts = posts.slice(0, 3)
+  
+  let remainingPosts;
+  let initialCanViewMore;
+  let finalSliceIndex = 6;
+  if (posts.length > finalSliceIndex) {
+    initialCanViewMore = true;
+    remainingPosts = posts.slice(finalSliceIndex);
+  } else {
+    remainingPosts = []
+    initialCanViewMore = false;
+  }
+
+  const [canViewMore, setCanViewMore] = useState(initialCanViewMore);
+  const [renderPosts, setRenderPosts] = useState(posts.slice(0, finalSliceIndex));
+
+  const addMorePosts = () => {
+    setRenderPosts(renderPosts.concat(remainingPosts))
+    setCanViewMore(false)
+  }
+
   return (
     <Container style={justi}>
-      {posts.map((item, i) => (
+      {renderPosts.map((item, i) => (
         <CardWithHeadImage
           key={item.id}
           href={`/blog/${item.slug}`}
@@ -26,6 +45,9 @@ function CardPostList ({ posts, title }) {
           intro={item.intro}
         />)
       )}
+      {canViewMore && 
+      <Button action={addMorePosts}>Ver todos los posts</Button>
+      }
     </Container>
   )
 }
