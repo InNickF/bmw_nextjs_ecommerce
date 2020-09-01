@@ -184,7 +184,7 @@ export {
 	FrequentlyBuyed,
 	ActualCarCardHeader,
 	DotsLoader,
-	FacebookPixel
+	FacebookPixel,
 	Column,
 	Row
 }
