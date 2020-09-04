@@ -20,6 +20,18 @@ export const Content = styled.div`
     height: auto;
     max-width: 100%;
   }
+
+  .content img.ws {
+    height: 30px;
+    max-width: 30px;
+    width: 30px;
+  }
+
+  .content img.chat {
+    height: 36px;
+    max-width: 30px;
+    width: 74px;
+  }
 `
 
 export const Text = styled.div`

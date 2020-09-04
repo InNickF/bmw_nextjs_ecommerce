@@ -98,13 +98,13 @@ h1, h2{
     text-transform: uppercase;
   }
 
-button, button a , button span, .cta-bold {
+button, button a , button span, .cta-bold, .cta-bold span {
   font-family: ${parseInt(process.env.BRAND_ID) === 1 && `'Motorrad-Bold', sans-serif !important`};
   ${parseInt(process.env.BRAND_ID) === 1 && `font-weight: bolder!important`};
   font-family: ${parseInt(process.env.BRAND_ID) === 2 && `'Mini-Sans-Regular', sans-serif !important`};
   ${parseInt(process.env.BRAND_ID) === 2 && `font-weight: bolder!important`};
   font-family: ${parseInt(process.env.BRAND_ID) === 3 && `'BMWGroup-Bold', sans-serif !important`}; 
-  text-transform: uppercase; 
+  text-transform: capitalize; 
 }
 
 .cta-bold{
