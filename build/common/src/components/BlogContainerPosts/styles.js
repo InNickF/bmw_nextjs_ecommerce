@@ -120,7 +120,7 @@ export const PostHome = styled.div`
 `
 export const PostCard = styled.div`
 a{
-  text-transform: uppercase!important;  
+  text-transform: capitalize!important;  
 }
 position: relative;
   &:before{

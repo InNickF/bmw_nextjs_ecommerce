@@ -93,7 +93,7 @@ class Blog extends Component {
               buttonContent={
                 <Link route="blogpost"
                   params={{ slug: firstInLastPosts.slug }}>
-                  <a className='blogDetail'>VER MÁS</a>
+                  <a className='blogDetail'>Ver más</a>
                 </Link>
               }
             />
@@ -116,7 +116,7 @@ class Blog extends Component {
                     buttonContent={
                       <Link route="blogpost"
                         params={{ slug: diyArticle.slug }} >
-                        <a className='blogDetail'>VER MÁS</a>
+                        <a className='blogDetail'>Ver más</a>
                       </Link>
                     }
                     rightImage
@@ -149,7 +149,7 @@ class Blog extends Component {
                     buttonContent={
                       <Link route="blogpost"
                         params={{ slug: responsibilityArticle.slug }} >
-                        <a className='blogDetail'>VER MÁS</a>
+                        <a className='blogDetail'>Ver más</a>
                       </Link>
                     }
                   />
@@ -169,7 +169,7 @@ class Blog extends Component {
                 dateText={getFormatedDate(item.startAt)}
                 buttonContent={
                   <Link href={`/evento/${item.slug}`}>
-                    <a>VER MÁS</a>
+                    <a>Ver más</a>
                   </Link>
                 }
               />
@@ -219,7 +219,7 @@ class Blog extends Component {
           <BtnNovedades>
             <Button asLink>
               <Link href='/eventos/todos'>
-                <a>VER TODOS LOS EVENTOS</a>
+                <a>Ver todos los eventos</a>
               </Link>
             </Button>
           </BtnNovedades>
