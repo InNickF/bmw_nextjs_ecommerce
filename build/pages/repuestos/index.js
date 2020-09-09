@@ -3,9 +3,215 @@ import Helmet from "react-helmet";
 import {Accordion, Card, Button, Form} from 'react-bootstrap';
 import {Container, HeroContent, Inner, Row, ColLg12, Boxes, SmartBox, Features} from "../../styles/repuestos";
 
+
+const modelos = [
+	{serie: 'i3', modelos: ['i3 120Ah IB1', 'i4 60Ah IB1']},
+	{serie: 'i8', modelos: ['i8', 'i8 I12 LCI B38X']},
+	{
+		serie: 'Serie 1',
+		modelos: [
+			'114i N13',
+			'116i N13',
+			'116i N45',
+			'116i N45N',
+			'118d N47N',
+			'118i B38C',
+			'118i N13',
+			'120d N47',
+			'120d N47N',
+			'120i N13',
+			'120i N46',
+			'120i N46N',
+			'125i N52N',
+			'130i N52',
+			'135i N54',
+			'M135i N55',
+			'M135iX B48E',
+			'M135iX N55',
+			'M140i B58',
+			'M3 S65',
+			'M Coupé N54T',
+		]
+	},
+	{
+		serie: 'Serie 2',
+		modelos: [
+			'218i B38',
+			'218i B38C',
+			'220i N20',
+			'225xe B38X',
+			'M235i N55',
+			'M235iX B48E',
+			'M240i B58',
+			'M2 Competition S55',
+			'M2 N55'
+		]
+	},
+	{
+		serie: 'Serie 3',
+		modelos: [
+			'316i N13',
+			'316i N45N',
+			'318i B38',
+			'318i N46N',
+			'320d N47',
+			'320d N47N',
+			'320i B48C',
+			'320i M54',
+			'320i N20',
+			'320i N46',
+			'320i N46N',
+			'325Ci M54',
+			'325i N52',
+			'325i N52N',
+			'328i N20',
+			'330Ci M54',
+			'330e B48X',
+			'330i B48',
+			'330i B48D',
+			'330i M54',
+			'330i N52',
+			'330i N52N',
+			'335i N54',
+			'340i B58',
+			'M340iX B58D',
+			'M3 S55'
+		]
+	},
+	{
+		serie: 'Serie 4',
+		modelos: [
+			'418i B38',
+			'420i B48',
+			'420i N20',
+			'428i N20',
+			'430i B48',
+			'435i N55',
+			'440i B58',
+			'M4 S55'
+		]
+	},
+	{
+		serie: 'Serie 5',
+		modelos: [
+			'520d N47N',
+			'520i B48',
+			'520i N20',
+			'523i N25N',
+			'525i M54',
+			'530d N57',
+			'530e B48X',
+			'530i B48D',
+			'530i N52N',
+			'535i N55',
+			'540i B58',
+			'545i N62',
+			'550i N52N',
+			'550i N62N',
+			'550i N63',
+			'M5 S63M',
+			'M5 S63N',
+			'M5 S85',
+		]
+	},
+	{
+		serie: 'Serie 6',
+		modelos: [
+			'630i N52N',
+			'630i N52N',
+			'640i N55',
+			'645Ci N62',
+			'650i N62N',
+			'M6 S63N',
+		],
+	},
+	{
+		serie: 'Serie 7',
+		modelos: [
+			'730d B57',
+			'730d N57',
+			'730i N52N',
+			'740i B58C',
+			'740i N54',
+			'740i N62N',
+			'745e B58X',
+			'745i N62',
+			'750i N63',
+			'750Li N62N',
+			'750Li N63'
+		]
+	},
+	{
+		serie: 'Serie 8',
+		modelos: ['M850iX N63B']
+	},
+	{
+		serie: 'X1',
+		modelos: [
+			'X1 18d N47N',
+			'X1 18i N46N',
+			'X1 20dX N47',
+			'X1 20i B42',
+			'X1 20i N20',
+			'X1 25iX N52N',
+			'X1 28iX N52N',
+		]
+	},
+	{
+		serie: 'X2',
+		modelos: [
+			'18i B38C',
+			'20i B48C',
+			'M3535iX B48E',
+		]
+	},
+	{
+		serie: 'X3',
+		modelos: [
+			'X3 2.0d N47',
+			'X3 20dX B47',
+			'X3 20dX N47N',
+			'X3 2.5i M54',
+			'X3 2.5si N52N',
+			'X3 28iX N20',
+			'X3 28iX N20',
+			'X3 30dX B57',
+			'X3 30dX N57N',
+			'X3 3.0i M54',
+			'X3 30iX B48',
+			'X3 30iX B48D',
+			'X3 3.0si N52N',
+			'X3 35iX N55',
+			'X3 M40iX B58',
+			'X3 M S58',
+		]
+	}
+
+]
+
 const Repuestos = () => {
 
-	const [compactibilidad, setCompatibilidad] = useState();
+	const [serie, setSerie] = useState(0);
+	const [modelo, setModelo] = useState(0);
+	const [nombre, setNombre] = useState('');
+	const [correo, setCorreo] = useState('');
+	const [telefono, setTelefono] = useState('');
+	const [terminos, setTerminos] = useState(false);
+	const [mensaje, setMensaje] = useState('');
+	const [chasis, setChasis] = useState('');
+
+
+	const enviarFormulario = () => {
+
+		if (terminos) {
+			const serieD = modelos[serie].serie;
+			const modeloD = modelos[serie].modelos[modelo]
+
+
+
+
+		}
+	}
 
 	return (
 		<Fragment>
@@ -33,7 +239,8 @@ const Repuestos = () => {
 											<SmartBox>
 												<Row>
 													<ColLg12>
-														<span style={{fontSize: '2.5rem'}} className="text-primary bold">1</span>
+														<span style={{fontSize: '2.5rem'}}
+															  className="text-primary bold">1</span>
 													</ColLg12>
 													<ColLg12>
 														<p>
@@ -45,7 +252,8 @@ const Repuestos = () => {
 											<SmartBox className="mt-5">
 												<Row>
 													<ColLg12>
-														<span style={{fontSize: '2.5rem'}} className="text-primary bold">2</span>
+														<span style={{fontSize: '2.5rem'}}
+															  className="text-primary bold">2</span>
 													</ColLg12>
 													<ColLg12>
 														<p>
@@ -61,7 +269,8 @@ const Repuestos = () => {
 											<SmartBox className="item-center">
 												<Row>
 													<ColLg12>
-														<span style={{fontSize: '2.5rem'}} className="text-primary bold">3</span>
+														<span style={{fontSize: '2.5rem'}}
+															  className="text-primary bold">3</span>
 													</ColLg12>
 													<ColLg12>
 														<p>
@@ -266,40 +475,55 @@ const Repuestos = () => {
 							<h1>¿Tienes alguna consulta?</h1>
 						</ColLg12>
 						<div className="col-md-6" style={{marginTop: '30px'}}>
-							<Form>
-								<Form.Group controlId="nombre">
-									<Form.Label>Nombre completo:</Form.Label>
-									<Form.Control type="text"/>
-								</Form.Group>
-								<Form.Group controlId="formBasicEmail">
-									<Form.Label>Correo electronico:</Form.Label>
-									<Form.Control type="email"/>
-								</Form.Group>
+							<Form.Group controlId="nombre">
+								<Form.Label>Nombre completo (*)</Form.Label>
+								<Form.Control type="text" onChange={e => setNombre(e.target.value)}/>
+							</Form.Group>
+							<Form.Group controlId="formBasicEmail">
+								<Form.Label>Correo electrónico (*)</Form.Label>
+								<Form.Control type="email" onChange={e => setCorreo(e.target.value)}/>
+							</Form.Group>
 
-								<Form.Group controlId="formBasicPassword">
-									<Form.Label>Telefono:</Form.Label>
-									<Form.Control type="text"/>
-								</Form.Group>
-								<Form.Group controlId="exampleForm.ControlSelect1">
-									<Form.Label>Serie</Form.Label>
-									<Form.Control as="select">
-										<option>Serie 1</option>
-										<option>Serie 2</option>
-										<option>Serie 3</option>
-										<option>Serie 4</option>
-										<option>Serie 5</option>
-										<option>Serie 6</option>
-										<option>Serie 7</option>
-										<option>Serie 8</option>
-									</Form.Control>
-								</Form.Group>
-								<Form.Group controlId="formBasicCheckbox">
-									<Form.Check type="checkbox" label="Acepto terminos y condiciones."/>
-								</Form.Group>
-								<Button variant="primary" type="submit">
-									Enviar
-								</Button>
-							</Form>
+							<Form.Group controlId="formBasicPassword">
+								<Form.Label>Teléfono (*)</Form.Label>
+								<Form.Control type="number" onChange={e => setTelefono(e.target.value)}/>
+							</Form.Group>
+							<Form.Group controlId="exampleForm.ControlSelect1">
+								<Form.Label>Serie</Form.Label>
+								<Form.Control as="select" onChange={(e) => setSerie(e.target.value)}>
+									{
+										modelos.map((item, i) => <option value={i}>{item.serie}</option>)
+									}
+								</Form.Control>
+							</Form.Group>
+							<Form.Group controlId="exampleForm.ControlSelect2">
+								<Form.Label>Modelo</Form.Label>
+								<Form.Control as="select" onChange={e => setModelo(e.target.value)}>
+									{
+										modelos[serie].modelos.map((item, i) => <option value={i}>{item}</option>)
+									}
+								</Form.Control>
+							</Form.Group>
+							<Form.Group>
+								<Form.Label>Numero de chasis</Form.Label>
+								<Form.Control type="text" onChange={e => setChasis(e.target.value)}/>
+							</Form.Group>
+							<Form.Group>
+								<Form.Label>Mensaje (*)</Form.Label>
+								<Form.Control as="textarea" rows="3" onChange={e => setMensaje(e.target.value)}/>
+							</Form.Group>
+							<Form.Group controlId="formBasicCheckbox">
+								<Form.Check type="checkbox" label="Acepto terminos y condiciones."
+											onChange={e => setTerminos(e.target.checked)}/>
+							</Form.Group>
+							<Button disabled={!(terminos == true
+							&& nombre.trim() !== '' && nombre.length > 5
+							&& correo.trim() !== '' && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(correo)
+							&& telefono.trim() !== '' && telefono.length > 6
+							&& mensaje.trim() !== '')} variant="primary" type="submit"
+									onClick={() => enviarFormulario()}>
+								Enviar
+							</Button>
 						</div>
 					</Row>
 				</Container>
