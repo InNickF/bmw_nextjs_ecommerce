@@ -71,7 +71,7 @@ class CategoryDetail extends React.Component {
               } />
             <CategoryData className="reverse-data">
               <Link route="products" params={{ c: categoryCurrent.id, level: categoryCurrent.level }}  >
-                <a className="cta-bold">Ver más &nbsp; <span>{categoryCurrent.label && categoryCurrent.label.split(/\s/)[0]}</span></a>
+                <a className="cta-bold">Ver más &nbsp; <span>{categoryCurrent.label && categoryCurrent.label.split(/\s/)[0].toLowerCase()}</span></a>
               </Link>
               <div style={{ width: '50%' }} />
               <CategoryDescription>{categoryCurrent.description}</CategoryDescription>

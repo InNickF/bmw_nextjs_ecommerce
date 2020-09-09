@@ -51,7 +51,7 @@ function SubCategoryHeaderCard({ title, titleTwo, subTitle }) {
           level: 1,
         }}
       >
-        <a className="cta-bold">VER TODO</a>
+        <a className="cta-bold">Ver todo</a>
       </Link>
     </div>
   );

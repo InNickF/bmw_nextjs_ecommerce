@@ -54,7 +54,7 @@ class Events extends Component {
                 dateText={getFormatedDate(item.startAt)}
                 buttonContent={
                   <Link href={`/evento/${item.slug}`}>
-                    <a>VER MÁS</a>
+                    <a>Ver más</a>
                   </Link>
                 }
               />
@@ -99,7 +99,7 @@ class Events extends Component {
           <AlignWrapper margin='1rem'>
             <Button asLink>
               <Link href='/eventos/todos'>
-                <a>VER TODOS LOS EVENTOS</a>
+                <a>Ver todos los eventos</a>
               </Link>
             </Button>
           </AlignWrapper>
