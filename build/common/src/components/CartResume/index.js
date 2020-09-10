@@ -52,7 +52,7 @@ function CartResume({
     <Card className={`${step != 0 && step != 2 ? 'hide-responsive' : ''}`}>
       <ProductInfo>
         <h2 style={{ fontWeight: "bold" }}>Resumen <br />de tu compra.</h2>
-        <div><p>Subtotal</p> <p>{priceFormatter(subtotalAvalidable)}</p></div>
+        <div><p>Subtotal</p> <p>{priceFormatter(Math.round(subtotalAvalidable))}</p></div>
         {isLogged && addressOK && shipping == 0 && <div><p>Envío</p> <p>Gratis</p></div>}
         {isLogged && shipping > 0 && <div><p>Envío</p> <p>{priceFormatter(shipping)}</p></div>}
         {isLogged && withCoupon && withCoupon !== 0 &&
@@ -60,7 +60,7 @@ function CartResume({
         }
         <div><p>IVA</p> <p>{priceFormatter(IvaAvalidable)}</p></div>
         <div className='separator ' />
-        <div><p style={{ fontWeight: "500" }}>Total</p> <p>{priceFormatter(isPercentage ? totalAvalidable - withCoupon : totalAvalidable)}</p></div>
+        <div><p style={{ fontWeight: "500" }}>Total</p> <p>{priceFormatter(Math.round(isPercentage ? totalAvalidable - withCoupon : totalAvalidable))}</p></div>
       </ProductInfo>
       {isLogged && step == 0 &&
         <ProductPromo>
