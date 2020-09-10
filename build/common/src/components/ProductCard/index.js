@@ -21,6 +21,7 @@ import {
 import {ColorSquare} from '../CollapsibleItems/styles'
 import {colorsPicker} from '../../constants/products'
 import capitalizeBrands from '../../helpers/capitalizeBrands'
+import {prop} from "styled-tools";
 
 function getUnique(arr, comp) {
 
@@ -91,10 +92,11 @@ function ProductCard(
 						</div>
 						<div className="product-card-prices">
 							<p>{productCategory && productCategory.name}</p>
-							<Price>{priceFormatter(priceFormatter(
+							<Price>{priceFormatter(
 								calculardescuentos
 									? Math.round(priceWithTax - ((priceWithTax * discountPercentage) / 100))
-									: priceWithTax))}</Price>
+									: priceWithTax
+							)}</Price>
 						</div>
 					</ProductCardData>
 					<ProductCardDataResponsive>
