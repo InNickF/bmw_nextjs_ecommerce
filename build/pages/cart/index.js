@@ -435,6 +435,8 @@ class CartView extends React.Component {
 																onRemoveClick={() =>
 																	deleteProductToCartLocal(item)
 																}
+																calculardescuentos={item.calculardescuentos}
+																priceWithTax={item.priceWithTax}
 																discountPercentage={item.discountPercentage}
 																initDateDiscount={item.initDateDiscount}
 																endDateDiscount={item.endDateDiscount}
@@ -465,6 +467,8 @@ class CartView extends React.Component {
 																onRemoveClick={() =>
 																	deleteProductToCartLocal(item)
 																}
+																calculardescuentos={item.calculardescuentos}
+																priceWithTax={item.priceWithTax}
 																discountPercentage={item.discountPercentage}
 																initDateDiscount={item.initDateDiscount}
 																endDateDiscount={item.endDateDiscount}
