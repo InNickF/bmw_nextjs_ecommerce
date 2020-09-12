@@ -2,6 +2,7 @@ import React, {Fragment, useState} from 'react'
 import Helmet from "react-helmet";
 import {Accordion, Card, Button, Form} from 'react-bootstrap';
 import {Container, HeroContent, Inner, Row, ColLg12, Boxes, SmartBox, Features} from "../../styles/repuestos";
+import {FeedbackModal} from "../../common/src/components";
 
 
 const modelos = [
@@ -200,17 +201,34 @@ const Repuestos = () => {
 	const [mensaje, setMensaje] = useState('');
 	const [chasis, setChasis] = useState('');
 
+	const [mostrar, setMostrar] = useState(false)
+
 
 	const enviarFormulario = () => {
 
-		if (terminos) {
-			const serieD = modelos[serie].serie;
-			const modeloD = modelos[serie].modelos[modelo]
+		fetch(`${process.env.API}/api/ecommerce/correo`, {
+			method: 'POST',
+			headers: {
+				"Content-Type": "application/json",
+				accept: 'application/json'
+			},
+			body: JSON.stringify({
+				marca: 'BMW',
+				nombre,
+				correo,
+				telefono,
+				serie: modelos[serie].serie,
+				modelo: modelos[serie].modelos[modelo],
+				chasis,
+				mensaje
+			})
+		})
+			.then(result => result.json())
+			.then(result => {
+				setMostrar(true);
+			})
+			.catch(e => console.log(e));
 
-
-
-
-		}
 	}
 
 	return (
@@ -517,10 +535,10 @@ const Repuestos = () => {
 											onChange={e => setTerminos(e.target.checked)}/>
 							</Form.Group>
 							<Button disabled={!(terminos == true
-							&& nombre.trim() !== '' && nombre.length > 5
-							&& correo.trim() !== '' && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(correo)
-							&& telefono.trim() !== '' && telefono.length > 6
-							&& mensaje.trim() !== '')} variant="primary" type="submit"
+								&& nombre.trim() !== '' && nombre.length > 5
+								&& correo.trim() !== '' && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(correo)
+								&& telefono.trim() !== '' && telefono.length > 6
+								&& mensaje.trim() !== '')} variant="primary" type="submit"
 									onClick={() => enviarFormulario()}>
 								Enviar
 							</Button>
@@ -530,6 +548,9 @@ const Repuestos = () => {
 
 			</div>
 
+			<FeedbackModal toggleModal={() => {
+				window.location.reload();
+			}} title='Pronto nos pondremos en contacto' isVisible={mostrar}/>
 
 		</Fragment>
 	)
