@@ -9,7 +9,6 @@ import {
   Wrapper,
   View,
   ProductsSlider,
-  FacebookPixel
 } from '../../common/components'
 
 import Footer from '../../components/Footer'
@@ -45,7 +44,6 @@ class PaymentConfirmation extends React.Component {
         <Helmet>
           <title> {payOk ? 'Confirmación de pago' : 'Pago rechazado'}</title>
         </Helmet>
-        { payOk && <FacebookPixel names={['FACEBOOK_PIXEL_POST_VENTA_09_2020']}/> }
         <ContainerFixed>
           <ContentFixed>
             <ContentCard title='Resumen de compra'>

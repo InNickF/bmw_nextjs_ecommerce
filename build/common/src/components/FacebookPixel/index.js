@@ -8,7 +8,7 @@ function FacebookPixel({ names }) {
 
   return (
     <React.Fragment>
-      // FACEBOOK_PIXEL_POST_VENTA_09_2020
+       {/* FACEBOOK_PIXEL_POST_VENTA_09_2020 */}
       { names.includes('FACEBOOK_PIXEL_POST_VENTA_09_2020') && (
         <React.Fragment>
           <script dangerouslySetInnerHTML={{ __html: `!function(f,b,e,v,n,t,s)

@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { Fragment } from 'react'
+import { FacebookPixel } from '../../common/components'
 
 const HeadEndTags = () => (
   <Fragment>
@@ -61,6 +62,7 @@ const HeadEndTags = () => (
       src="https://www.facebook.com/tr?id=457256228159128&ev=PageView&noscript=1"
     /></noscript>
     {/* <!-- End Facebook Pixel Code --> */}
+    <FacebookPixel names={['FACEBOOK_PIXEL_POST_VENTA_09_2020']}/>
 
 
 
