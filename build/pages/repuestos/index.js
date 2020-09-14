@@ -186,8 +186,83 @@ const modelos = [
 			'X3 M40iX B58',
 			'X3 M S58',
 		]
+	},
+	{
+		serie: 'X4',
+		modelos: [
+			'X4 20dX B47',
+			'X4 20iX N20',
+			'X4 28iX N20',
+			'X4 30dX N57N',
+			'X4 30iX B48',
+			'X4 35ix N55',
+			'X4 M40iX B58B',
+			'X4 M S58',
+		]
+	},
+	{
+		serie: 'X5',
+		modelos: [
+			'X5 3.0d M57N2',
+			'X5 30dX B57',
+			'X5 30dX N57N',
+			'X5 3.0i M54',
+			'X5 3.0si N52N',
+			'X5 35iX N55',
+			'X5 40eX N20',
+			'X5 40iX B58C',
+			'X5 4.4i N62',
+			'X5 45eX B58X',
+			'X5 4.8i N62N',
+			'X5 4.8is N62',
+			'X5 50iX N63',
+			'X5 50iX N63M',
+			'X5 50iX N63N',
+			'X5 M50iX N63B',
+			'X5 M S63',
+			'X5 M S63R',
+		]
+	},
+	{
+		serie: 'X6',
+		modelos: [
+			'X6 30dX N57',
+			'X6 30dX N57N',
+			'X6 35iX N54',
+			'X6 35iX N55',
+			'X6 40iX B58C',
+			'X6 50iX N63',
+			'X6 50iX N63N',
+			'X6 M50iX N63B',
+			'X6 M S63',
+			'X6 M S63R',
+		]
+	},
+	{
+		serie: 'X7',
+		modelos: [
+			'X7 30dX B57',
+			'X7 40iX B58C',
+			'X7 50iX N63M',
+			'X7 M50iX N63B',
+		]
+	},
+	{
+		serie: 'Z4',
+		modelos: [
+			'20i B48D',
+			'M40i B58C',
+			'Z4 18i N20',
+			'Z4 20i N20',
+			'Z4 23i N52N',
+			'Z4 2.5si N52',
+			'Z4 3.0i M54',
+			'Z4 3.0si N52',
+			'Z4 35i N54',
+			'Z4 35is N54T',
+			'Z4 M3.2 S54',
+		]
 	}
-
 ]
 
 const Repuestos = () => {
@@ -202,10 +277,11 @@ const Repuestos = () => {
 	const [chasis, setChasis] = useState('');
 
 	const [mostrar, setMostrar] = useState(false)
+	const [enviando, setEnviando] = useState(false);
 
 
 	const enviarFormulario = () => {
-
+		setEnviando(true);
 		fetch(`${process.env.API}/api/ecommerce/correo`, {
 			method: 'POST',
 			headers: {
@@ -225,9 +301,15 @@ const Repuestos = () => {
 		})
 			.then(result => result.json())
 			.then(result => {
+				setEnviando(false);
 				setMostrar(true);
 			})
-			.catch(e => console.log(e));
+			.catch(e => {
+				setEnviando(false);
+				setMostrar(false);
+				alert(e.message);
+				console.log(e)
+			});
 
 	}
 
@@ -535,7 +617,7 @@ const Repuestos = () => {
 											onChange={e => setTerminos(e.target.checked)}/>
 							</Form.Group>
 							<Button disabled={!(terminos == true
-								&& nombre.trim() !== '' && nombre.length > 5
+								&& nombre.trim() !== '' && nombre.length > 3
 								&& correo.trim() !== '' && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(correo)
 								&& telefono.trim() !== '' && telefono.length > 6
 								&& mensaje.trim() !== '')} variant="primary" type="submit"
@@ -550,7 +632,7 @@ const Repuestos = () => {
 
 			<FeedbackModal toggleModal={() => {
 				window.location.reload();
-			}} title='Pronto nos pondremos en contacto' isVisible={mostrar}/>
+			}} title={enviando ? 'Enviando' : 'Pronto nos pondremos en contacto'} isVisible={mostrar || enviando}/>
 
 		</Fragment>
 	)
