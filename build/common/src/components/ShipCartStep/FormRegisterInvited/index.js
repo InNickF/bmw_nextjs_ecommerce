@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createForm, formShape } from 'rc-form';
-import { FormRegisterContainer, FieldContainer, FormContainer, BtnContainer, ContBtn } from '../styles'
+import { FormRegisterContainer, FieldContainer, FormContainer, BtnContainer, ContBtn, CheckBoxContainer } from '../styles'
 import { useDispatch, useSelector } from 'react-redux';
 
 import { cart } from '../../../redux'
@@ -14,6 +14,9 @@ function FormRegisterInvited({ form }) {
   const { getFieldProps, getFieldError } = form;
   let errors;
 
+  const [term, setTerm] = useState(false)
+  const [priv, setPriv] = useState(false)
+
   const { signupInvitedSuccess } = useSelector(state => ({
     signupInvitedSuccess: state.get('cart').get('signupInvitedSuccess')
   }))
@@ -21,7 +24,7 @@ function FormRegisterInvited({ form }) {
   const submit = (event) => {
     event.preventDefault()
     form.validateFields((error, value) => {
-      if (!error) {
+      if (!error && term && priv) {
         dispatch(signupInvited(value))
       }
     });
@@ -82,6 +85,34 @@ function FormRegisterInvited({ form }) {
           })} />
           <span className="error-span">{(errors = getFieldError('email')) ? errors.join(',') : null}</span>
         </FieldContainer>
+        <CheckBoxContainer>
+          <FieldContainer>
+            <label className="checkbox-label-invited">
+              <input onClick={() => setTerm(!term)} className="checkbox-confirmation-invited" type="checkbox" {...getFieldProps('term', {
+                rules: [
+                  { required: true, message: 'Debe aceptar los términos y condiciones' }
+                ]
+              })} />
+              <a target='_blank' href='/terminos-y-condiciones'>
+                Aceptar términos y condiciones
+            </a>
+            </label>
+            <span className="error-span">{(errors = getFieldError('term')) ? errors.join(',') : null}</span>
+          </FieldContainer>
+          <FieldContainer>
+            <label className="checkbox-label-invited">
+              <input onClick={() => setPriv(!priv)} className="checkbox-confirmation-invited" type="checkbox" {...getFieldProps('prev', {
+                rules: [
+                  { required: true, message: 'Debe aceptar las políticas de privacidad' }
+                ]
+              })} />
+              <a target='_blank' href='/nota-legal'>
+                Aceptar política de privacidad
+            </a>
+            </label>
+            <span className="error-span">{(errors = getFieldError('prev')) ? errors.join(',') : null}</span>
+          </FieldContainer>
+        </CheckBoxContainer>
       </FormRegisterContainer>
       {true &&
         <ContBtn onClick={submit}>
