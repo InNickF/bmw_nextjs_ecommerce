@@ -14,7 +14,7 @@ export const Content = styled.div.attrs(props => ({
   left: 0;
   max-width: 530px;
   max-width: 321px;
-  max-height: 446px;
+  max-height: 515px;
   width: 85%;
   z-index: 9;
 `
