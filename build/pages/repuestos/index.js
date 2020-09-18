@@ -4,6 +4,266 @@ import {Accordion, Card, Button, Form} from 'react-bootstrap';
 import {Container, HeroContent, Inner, Row, ColLg12, Boxes, SmartBox, Features} from "../../styles/repuestos";
 import {FeedbackModal} from "../../common/src/components";
 
+const modelos = [
+	{serie: 'i3', modelos: ['i3 120Ah IB1', 'i4 60Ah IB1']},
+	{serie: 'i8', modelos: ['i8', 'i8 I12 LCI B38X']},
+	{
+		serie: 'Serie 1',
+		modelos: [
+			'114i N13',
+			'116i N13',
+			'116i N45',
+			'116i N45N',
+			'118d N47N',
+			'118i B38C',
+			'118i N13',
+			'120d N47',
+			'120d N47N',
+			'120i N13',
+			'120i N46',
+			'120i N46N',
+			'125i N52N',
+			'130i N52',
+			'135i N54',
+			'M135i N55',
+			'M135iX B48E',
+			'M135iX N55',
+			'M140i B58',
+			'M3 S65',
+			'M Coupé N54T',
+		]
+	},
+	{
+		serie: 'Serie 2',
+		modelos: [
+			'218i B38',
+			'218i B38C',
+			'220i N20',
+			'225xe B38X',
+			'M235i N55',
+			'M235iX B48E',
+			'M240i B58',
+			'M2 Competition S55',
+			'M2 N55'
+		]
+	},
+	{
+		serie: 'Serie 3',
+		modelos: [
+			'316i N13',
+			'316i N45N',
+			'318i B38',
+			'318i N46N',
+			'320d N47',
+			'320d N47N',
+			'320i B48C',
+			'320i M54',
+			'320i N20',
+			'320i N46',
+			'320i N46N',
+			'325Ci M54',
+			'325i N52',
+			'325i N52N',
+			'328i N20',
+			'330Ci M54',
+			'330e B48X',
+			'330i B48',
+			'330i B48D',
+			'330i M54',
+			'330i N52',
+			'330i N52N',
+			'335i N54',
+			'340i B58',
+			'M340iX B58D',
+			'M3 S55'
+		]
+	},
+	{
+		serie: 'Serie 4',
+		modelos: [
+			'418i B38',
+			'420i B48',
+			'420i N20',
+			'428i N20',
+			'430i B48',
+			'435i N55',
+			'440i B58',
+			'M4 S55'
+		]
+	},
+	{
+		serie: 'Serie 5',
+		modelos: [
+			'520d N47N',
+			'520i B48',
+			'520i N20',
+			'523i N25N',
+			'525i M54',
+			'530d N57',
+			'530e B48X',
+			'530i B48D',
+			'530i N52N',
+			'535i N55',
+			'540i B58',
+			'545i N62',
+			'550i N52N',
+			'550i N62N',
+			'550i N63',
+			'M5 S63M',
+			'M5 S63N',
+			'M5 S85',
+		]
+	},
+	{
+		serie: 'Serie 6',
+		modelos: [
+			'630i N52N',
+			'630i N52N',
+			'640i N55',
+			'645Ci N62',
+			'650i N62N',
+			'M6 S63N',
+		],
+	},
+	{
+		serie: 'Serie 7',
+		modelos: [
+			'730d B57',
+			'730d N57',
+			'730i N52N',
+			'740i B58C',
+			'740i N54',
+			'740i N62N',
+			'745e B58X',
+			'745i N62',
+			'750i N63',
+			'750Li N62N',
+			'750Li N63'
+		]
+	},
+	{
+		serie: 'Serie 8',
+		modelos: ['M850iX N63B']
+	},
+	{
+		serie: 'X1',
+		modelos: [
+			'X1 18d N47N',
+			'X1 18i N46N',
+			'X1 20dX N47',
+			'X1 20i B42',
+			'X1 20i N20',
+			'X1 25iX N52N',
+			'X1 28iX N52N',
+		]
+	},
+	{
+		serie: 'X2',
+		modelos: [
+			'18i B38C',
+			'20i B48C',
+			'M3535iX B48E',
+		]
+	},
+	{
+		serie: 'X3',
+		modelos: [
+			'X3 2.0d N47',
+			'X3 20dX B47',
+			'X3 20dX N47N',
+			'X3 2.5i M54',
+			'X3 2.5si N52N',
+			'X3 28iX N20',
+			'X3 28iX N20',
+			'X3 30dX B57',
+			'X3 30dX N57N',
+			'X3 3.0i M54',
+			'X3 30iX B48',
+			'X3 30iX B48D',
+			'X3 3.0si N52N',
+			'X3 35iX N55',
+			'X3 M40iX B58',
+			'X3 M S58',
+		]
+	},
+	{
+		serie: 'X4',
+		modelos: [
+			'X4 20dX B47',
+			'X4 20iX N20',
+			'X4 28iX N20',
+			'X4 30dX N57N',
+			'X4 30iX B48',
+			'X4 35ix N55',
+			'X4 M40iX B58B',
+			'X4 M S58',
+		]
+	},
+	{
+		serie: 'X5',
+		modelos: [
+			'X5 3.0d M57N2',
+			'X5 30dX B57',
+			'X5 30dX N57N',
+			'X5 3.0i M54',
+			'X5 3.0si N52N',
+			'X5 35iX N55',
+			'X5 40eX N20',
+			'X5 40iX B58C',
+			'X5 4.4i N62',
+			'X5 45eX B58X',
+			'X5 4.8i N62N',
+			'X5 4.8is N62',
+			'X5 50iX N63',
+			'X5 50iX N63M',
+			'X5 50iX N63N',
+			'X5 M50iX N63B',
+			'X5 M S63',
+			'X5 M S63R',
+		]
+	},
+	{
+		serie: 'X6',
+		modelos: [
+			'X6 30dX N57',
+			'X6 30dX N57N',
+			'X6 35iX N54',
+			'X6 35iX N55',
+			'X6 40iX B58C',
+			'X6 50iX N63',
+			'X6 50iX N63N',
+			'X6 M50iX N63B',
+			'X6 M S63',
+			'X6 M S63R',
+		]
+	},
+	{
+		serie: 'X7',
+		modelos: [
+			'X7 30dX B57',
+			'X7 40iX B58C',
+			'X7 50iX N63M',
+			'X7 M50iX N63B',
+		]
+	},
+	{
+		serie: 'Z4',
+		modelos: [
+			'20i B48D',
+			'M40i B58C',
+			'Z4 18i N20',
+			'Z4 20i N20',
+			'Z4 23i N52N',
+			'Z4 2.5si N52',
+			'Z4 3.0i M54',
+			'Z4 3.0si N52',
+			'Z4 35i N54',
+			'Z4 35is N54T',
+			'Z4 M3.2 S54',
+		]
+	}
+]
+
 const Repuestos = () => {
 
 	const [serie, setSerie] = useState(0);
