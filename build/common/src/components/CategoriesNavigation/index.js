@@ -71,6 +71,14 @@ function DefaultItems({ setNextState, logout, isLogged, toggleClass, categories 
         </ListItem>)}
 
       <ListItem addAnimation={toggleClass}>
+        <Link route="/repuestos">
+          <ItemLink>
+            <a>Repuestos</a>
+            <ArrowLeft />
+          </ItemLink>
+        </Link>
+      </ListItem>
+      <ListItem addAnimation={toggleClass}>
         <Link route="blog">
           <ItemLink>
             <a>Novedades</a>
