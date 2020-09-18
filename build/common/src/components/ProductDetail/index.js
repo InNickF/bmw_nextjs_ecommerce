@@ -210,7 +210,7 @@ class ProductDetail extends React.Component {
 			? (selectProduct.calculardescuentos
 				? selectProduct.priceWithTax
 				: (selectProduct.priceWithTax / (1 - (selectProduct.discountPercentage / 100))))
-			: selectProduct.priceWithTax);
+				: (selectProduct.priceWithTax ? selectProduct.priceWithTax : selectProduct.price));
 
 		return (
 			<>

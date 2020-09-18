@@ -64,6 +64,11 @@ function mapStateToProps(store) {
 	Object.hasOwnProperty.call(cart.charges, 'shipping') &&
 	Object.hasOwnProperty.call(cart.charges.shipping, 'TCC')
 		? cart.charges.shipping.TCC : 0
+
+	const TCCRateError = Object.hasOwnProperty.call(cart, 'charges') &&
+	Object.hasOwnProperty.call(cart.charges, 'shipping') &&
+	Object.hasOwnProperty.call(cart.charges.shipping, 'TCCError') ? cart.charges.shipping.TCCError : false
+
 	const addressOK = !!(cart && cart.address && cart.address.id)
 
 	let subtotal = Object.hasOwnProperty.call(cart, 'charges')
@@ -99,6 +104,7 @@ function mapStateToProps(store) {
 
 	return {
 		shippingValue,
+		TCCRateError,
 		addressOK,
 		cart,
 		cartLocal,

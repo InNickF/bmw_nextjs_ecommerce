@@ -65,7 +65,7 @@ function ProductCard(
 				? (priceWithTax)
 				: (priceWithTax / (1 - (discountPercentage / 100)))
 		)
-		: priceWithTax);
+		: (priceWithTax ? priceWithTax : price));
 
 	return (
 		<Container>
@@ -95,7 +95,7 @@ function ProductCard(
 							<Price>{priceFormatter(
 								calculardescuentos
 									? Math.round(priceWithTax - ((priceWithTax * discountPercentage) / 100))
-									: priceWithTax
+									: (priceWithTax ? priceWithTax : price)
 							)}</Price>
 						</div>
 					</ProductCardData>
@@ -111,7 +111,7 @@ function ProductCard(
 							</PriceDiscount>}
 							<Price>{priceFormatter(calculardescuentos
 								? Math.round(priceWithTax - ((priceWithTax * discountPercentage) / 100))
-								: priceWithTax)}</Price>
+								: (priceWithTax ? priceWithTax : price))}</Price>
 						</div>
 					</ProductCardDataResponsive>
 					<div className="hover-data">

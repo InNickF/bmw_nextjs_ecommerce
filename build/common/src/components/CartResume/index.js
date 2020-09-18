@@ -37,9 +37,9 @@ function CartResume({
   isLogged,
   isPercentage,
   discount,
-  buyAction
+  buyAction,
+  TCCRateError
 }) {
-
   const today = new Date();
   const [showLogin, toggleLogin] = useState(false);
 
@@ -53,8 +53,9 @@ function CartResume({
       <ProductInfo>
         <h2 style={{ fontWeight: "bold" }}>Resumen <br />de tu compra.</h2>
         <div><p>Subtotal</p> <p>{priceFormatter(Math.round(subtotalAvalidable))}</p></div>
-        {isLogged && addressOK && shipping == 0 && <div><p>Envío</p> <p>Gratis</p></div>}
-        {isLogged && shipping > 0 && <div><p>Envío</p> <p>{priceFormatter(shipping)}</p></div>}
+        {isLogged && addressOK && shipping == 0 && !TCCRateError && <div><p>Envío</p> <p>Gratis</p></div>}
+        {isLogged && shipping > 0 && !TCCRateError && <div><p>Envío</p> <p>{priceFormatter(shipping)}</p></div>}
+        {isLogged && TCCRateError && <div><p>Envío</p> <p>No disponible</p></div>}
         {isLogged && withCoupon && withCoupon !== 0 &&
           <div><p>Descuento {isPercentage ? `${discount}%` : ''}</p> <p>- {priceFormatter(withCoupon)}</p></div>
         }
@@ -74,7 +75,7 @@ function CartResume({
         </svg>
         Proceder a compra segura
         </ProductBtnBuy>}
-      {step == 2 && isLogged &&
+      {step == 2 && isLogged && !TCCRateError &&
         <>
           <ProductBtnBuy className="show-responsive" onClick={() => buyAction()}>
             <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
