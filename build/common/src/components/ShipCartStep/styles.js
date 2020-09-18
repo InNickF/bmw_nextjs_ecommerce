@@ -225,6 +225,12 @@ export const Row = styled.div`
   `};
   `
 
+export const CheckBoxContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`
+
 export const FieldContainer = styled.div`
   margin-top: 10px;
   position: relative;
@@ -345,6 +351,18 @@ input {
   font-size: small;
   color: #f93d5c;
   margin-top: 5px;
+}
+
+.checkbox-label-invited {
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+}
+
+.checkbox-confirmation-invited {
+  width: 20px;
+  margin: 0;
+  margin-right: 10px;
 }
 
 ${media.lessThan('tablet')`
