@@ -36,8 +36,9 @@ function mapStateToProps(store) {
 					: item.priceWithTax
 			) * item.quantity)
 		)
-		IVAInvited = subtotalInvited / 1.19;
-		subtotalInvited = subtotalInvited - IVAInvited;
+		let tempSubtotalInvited = subtotalInvited;
+		subtotalInvited = Math.round(subtotalInvited / 1.19);
+		IVAInvited = tempSubtotalInvited - subtotalInvited;
 		totalInvited = subtotalInvited + IVAInvited;
 	}
 	const addresses = store.get('user').get('addresses').toJS()
