@@ -122,7 +122,7 @@ class Home extends Component {
     return (
       <HomePage>
         <GenerateTags
-          title="Compra productos originales para motos BMW."
+          title="Compra productos originales BMW."
           url={originalUrl}
           description="Compra aquí accesorios, repuestos y llantas para carros BMW, o agrega un toque de elegancia y lujo a tu estilo con las colecciones BMW Lifestyle."
         />
