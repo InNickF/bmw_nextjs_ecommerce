@@ -122,9 +122,9 @@ class Home extends Component {
     return (
       <HomePage>
         <GenerateTags
-          title="Compra artículos originales BMW."
+          title="Compra productos originales para motos BMW."
           url={originalUrl}
-          descriptionShort="Dale seguridad a tu aventura con Rider Equipment y Style BMW Motorrad y prepárate para todos los caminos. Compra aquí accesorios y equipamiento. MAKE LIFE A RIDE©"
+          description="Compra aquí accesorios, repuestos y llantas para carros BMW, o agrega un toque de elegancia y lujo a tu estilo con las colecciones BMW Lifestyle."
         />
         <HomeContainer>
           <FullWidthSlider slides={slides} />

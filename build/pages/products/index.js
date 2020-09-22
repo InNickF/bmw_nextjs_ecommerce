@@ -615,24 +615,61 @@ class Products extends Component {
 
 		const seeTires = breadcrumbs.length > 0 &&
 		(breadcrumbs[breadcrumbs.length - 1].label) == "LLANTAS" ? true : false;
+		const metaSEOByCategory = [
+      {
+        name: 'OFFER',
+        title: 'Ofertas.',
+        description: 'Encuentra ofertas y promociones de accesorios y BMW Lifestyle. Accede a nuestros productos y realiza tus compras de manera rápida y segura.'
+      },
+      {
+        name: 'ACCESORIOS PARA CARROS',
+        title: 'Compra accesorios originales para carros BMW.',
+        description: ' Los accesorios para exterior e interior BMW, están diseñados con precisión e inspirados en el rendimiento. Regálale a tu BMW la tecnología de punta que merece.'
+      },
+      {
+        name: 'LIFESTYLE',
+        title: 'Compra artículos originales BMW Lifestyle.',
+        description: 'Agrega un toque de exclusividad a tu estilo con los artículos BMW Lifestyle. Encuentra colecciones BMW para hombre y mujer, relojes, gorras, elementos deportivos y más del estilo de vida BMW.'
+      }
+    ]
+    let currentMetaSEO = null;
+    metaSEOByCategory.forEach(categoryMetaSEO => {
+      if(breadcrumbs.length > 0 && breadcrumbs[0]?.label == categoryMetaSEO.name) {
+        currentMetaSEO = categoryMetaSEO
+      }
+    })
+    if(query?.offer) {
+      currentMetaSEO = metaSEOByCategory[0] // OFFER META SEO
+		}
+		console.log(breadcrumbs)
+		console.log(query)
+		console.log(currentMetaSEO)
 
 		const sort = query.order ? query.order.replace(" ", "-") : "";
 		const currentSort = this.state.currentSort;
 		return (
 			<>
-				<GenerateTags
-					title={
-						currentCategoryData && currentCategoryData.title
-							? currentCategoryData.metaTitle
-							: "Productos"
-					}
-					url={originalUrl}
-					description={
-						currentCategoryData && currentCategoryData.metaDescription
-							? currentCategoryData.metaDescription
-							: ""
-					}
-				/>
+      {currentMetaSEO ?
+        <GenerateTags
+          title={currentMetaSEO.title}
+          url={originalUrl}
+          description={currentMetaSEO.description}
+        />
+        :
+        <GenerateTags
+        title={
+          currentCategoryData && currentCategoryData.title
+            ? currentCategoryData.metaTitle
+            : "Productos"
+        }
+        url={originalUrl}
+        description={
+          currentCategoryData && currentCategoryData.metaDescription
+            ? currentCategoryData.metaDescription
+            : ""
+        }
+      />
+      }
 				{(breadcrumbs.length > 0 && breadcrumbs[0]?.label !== "LIFESTYLE" && breadcrumbs[0]?.label !== "STYLE" && breadcrumbs[0]?.label !== "RIDER EQUIPMENT" && breadcrumbs[breadcrumbs.length - 1]?.label != "LLANTAS") ||
 				(Object.hasOwnProperty.call(query, "c") &&
 					query.c.includes("accesorios")) ? (

@@ -68,14 +68,14 @@ function GenerateTags({
     <Head>
       {/* <!-- COMMON TAGS --> */}
       <title>
-        {brand} Shop Colombia | {title}
+          Tienda online {brand} Colombia | {title}
       </title>
       <meta name='theme-color' content={brand.mainColor} />
       {/* <!-- Search Engine --> */}
       <meta name='description' content={description} />
       <meta name='image' content={image} />
       {/* <!-- Schema.org for Google --> */}
-      <meta itemProp='name' content={`${brand} Shop Colombia | ${title}`} />
+      <meta itemProp='name' content={`Tienda online ${brand} Colombia | ${title}`} />
       <meta itemProp='description' content={description} />
       <meta itemProp='image' content={image} />
       {/* <!-- Twitter --> */}
@@ -86,11 +86,11 @@ function GenerateTags({
       <meta name='twitter:image:src' content={twitterImage} />
       {/* <!-- Twitter - Product (e-commerce) --> */}
       {/* <!-- Open Graph general (Facebook, Pinterest & Google+) --> */}
-      <meta name='og:title' content={`${brand} Shop Colombia | ${title}`} />
+      <meta name='og:title' content={`Tienda online ${brand} Colombia | ${title}`} />
       <meta name='og:description' content={description} />
       <meta name='og:image' content={image} />
       <meta name='og:url' content={url} />
-      <meta name='og:site_name' content={`${siteName} Shop Colombia`} />
+      <meta name='og:site_name' content={`Tienda online ${siteName} Colombia`} />
       <meta name='og:locale' content='es_CO' />
       <meta name='fb:admins' content={fbAdmins} />
       <meta name='fb:app_id' content={fbAppID} />

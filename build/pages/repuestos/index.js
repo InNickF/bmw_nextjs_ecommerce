@@ -2,7 +2,7 @@ import React, {Fragment, useState} from 'react'
 import Helmet from "react-helmet";
 import {Accordion, Card, Button, Form} from 'react-bootstrap';
 import {Container, HeroContent, Inner, Row, ColLg12, Boxes, SmartBox, Features} from "../../styles/repuestos";
-import {FeedbackModal} from "../../common/src/components";
+import {FeedbackModal, GenerateTags} from "../../common/src/components";
 
 const modelos = [
 	{serie: 'i3', modelos: ['i3 120Ah IB1', 'i4 60Ah IB1']},
@@ -314,8 +314,11 @@ const Repuestos = () => {
 
 	return (
 		<Fragment>
+			<GenerateTags
+				title='Compra repuestos originales BMW'
+				description='Encuentra repuestos con garantía para tu carro BMW y bríndale un óptimo rendimiento. Recibe asesoría personalizada, compra y espera en casa.'
+			/>
 			<Helmet>
-				<title>Repuestos BMW</title>
 				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
 			</Helmet>
 
