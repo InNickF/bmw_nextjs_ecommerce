@@ -543,8 +543,8 @@ class Terms extends Component {
 										el momento de la compra.
 									</p>
 									<p>
-										Los tiempos estimados y establecidos inicialmente para la entrega son: 3 días
-										hábiles en Bogotá y de 3 a 8 días hábiles en el resto del país. Las entregas se
+										Los tiempos estimados y establecidos inicialmente para la entrega son: 5 días
+										hábiles en Bogotá y de 10 días hábiles en el resto del país. Las entregas se
 										realizan únicamente en días hábiles siguientes a la fecha en que se haya
 										validado el pago, siempre y cuando no se presenten causas ajenas a la voluntad
 										de Autogermana que retrasen la entrega dentro de este plazo.
