@@ -243,7 +243,7 @@ function Header(props) {
 															preload
 														/>
 													</a>
-													{cartPreviewShowing.isShowing && cart && (
+													{cartPreviewShowing.isShowing && cart && cartPreviewShowing.items.length > 0 && (
 														<CartModalPreview
 															onClick={(e) => e.stopPropagation()}
 														>

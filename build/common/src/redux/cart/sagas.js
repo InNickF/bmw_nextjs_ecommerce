@@ -171,6 +171,13 @@ export function* cartEndpoint(action) {
           yield put(cartActions.setCartLocal([]));
           localStorage.removeItem("cartLocal");
         }
+        if(response.data.noAvaliableProducts > 0) {
+          yield put(
+            appActions.showFeedback({
+              feedbackTitle: `Lo sentimos en tu carrito de compra existía ${response.data.noAvaliableProducts} ${response.data.noAvaliableProducts > 1 ? "items no disponibles" : "item no disponible"}`,
+            })
+          );
+        }
         break;
       case "REMOVE":
         yield put(appActions.setPartLoading("cart", false));
@@ -205,6 +212,13 @@ export function* cartEndpoint(action) {
         if (response.data) {
           yield put(cartActions.setCartLocal([]));
           localStorage.removeItem("cartLocal");
+        }
+        if(response.data.noAvaliableProducts > 0) {
+          yield put(
+            appActions.showFeedback({
+              feedbackTitle: `Lo sentimos en tu carrito de compra existía ${response.data.noAvaliableProducts} ${response.data.noAvaliableProducts > 1 ? "items no disponibles" : "item no disponible"}`,
+            })
+          );
         }
         if(response.data.charges.shipping.TCCError) {
           yield put(
