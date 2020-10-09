@@ -536,7 +536,7 @@ class Terms extends Component {
 									<p>
 										Autogermana SAS solo realiza envíos dentro del territorio colombiano.
 									</p>
-									<h2 style={{marginTop: "30px", marginBottom: "20px"}}>TIEMPOS DE ENTREGA</h2>
+									<h2 style={{marginTop: "30px", marginBottom: "20px"}}>TIEMPOS DE ENTREGA.</h2>
 									<p>
 										Autogermana entrega los productos únicamente en el territorio de Colombia. Los
 										Productos serán entregados en la dirección y lugar que el Cliente nos informe en
