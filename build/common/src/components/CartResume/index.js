@@ -38,7 +38,8 @@ function CartResume({
   isPercentage,
   discount,
   buyAction,
-  TCCRateError
+  TCCRateError,
+  errorToPay
 }) {
   const today = new Date();
   const [showLogin, toggleLogin] = useState(false);
@@ -75,7 +76,7 @@ function CartResume({
         </svg>
         Proceder a compra segura
         </ProductBtnBuy>}
-      {step == 2 && isLogged && !TCCRateError &&
+        {step == 2 && isLogged && !TCCRateError && !errorToPay &&
         <>
           <ProductBtnBuy className="show-responsive" onClick={() => buyAction()}>
             <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">

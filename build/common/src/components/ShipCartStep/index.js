@@ -41,7 +41,8 @@ function ShipCartStep({
   isLogged,
   total,
   back,
-  TCCRateError
+  TCCRateError,
+  errorToPay
 }) {
   const { signupInvitedSuccess, setSignupInvitedSuccess } = useSelector(
     (state) => ({
@@ -207,7 +208,7 @@ function ShipCartStep({
                       </svg>
                     </h3>
                   </TitleHeader>
-                  {TCCRateError ? <h3>La dirección no está disponible para realizar la compra, por favor seleccione otra.</h3> :
+                  {!TCCRateError && !errorToPay &&
                   <ContentPayPaid>
                     <img
                       src={
@@ -238,6 +239,8 @@ function ShipCartStep({
                 </p>
                   </ContentPayPaid>
                   }
+                  {TCCRateError && <h3>La dirección no está disponible para realizar la compra, por favor seleccione otra.</h3>}
+                  {errorToPay && <h3>Lo sentimos, ha ocurrido un error que no permite realizar la compra, inténtelo más tarde.</h3>}
                 </ContentPay>
               </>
             </Content>

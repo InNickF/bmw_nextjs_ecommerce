@@ -229,10 +229,18 @@ export function* cartEndpoint(action) {
         }
         break;
     }
+    yield put(appActions.setErrorToPay(false));
   } catch (e) {
     yield put(appActions.setPartLoading("currentCart", false));
     yield put(appActions.setPartLoading("shippingValue", false));
     yield put(appActions.setPartLoading("cart", false));
+    yield put(appActions.setPartLoading("payment", false));
+    yield put(appActions.setErrorToPay(true));
+    yield put(
+      appActions.showFeedback({
+        feedbackTitle: 'Lo sentimos, ha ocurrido un error, inténtelo más tarde.',
+      })
+    );
     /* yield put(appActions.showFeedback({ feedbackTitle: "Creado carrito" })); */
     /* yield put(appActions.setError(e.message)); */
     /* console.log(e.message, "error del carrito"); */

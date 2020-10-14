@@ -131,6 +131,7 @@ class CartView extends React.Component {
 			addressOK,
 			shippingValue,
 			TCCRateError,
+      errorToPay,
 			withCoupon,
 			goSummary,
 			iva,
@@ -388,6 +389,7 @@ class CartView extends React.Component {
 												isLoading={isShippingLoading}
 												isLogged={!cartLocal?.length > 0}
 												TCCRateError={TCCRateError}
+                        errorToPay={errorToPay}
 											/>
 										)}
 										<div className="resume-grid">
@@ -504,6 +506,7 @@ class CartView extends React.Component {
 													getCoupon={getCoupon}
 													securePurchase={this.changeStep}
 													TCCRateError={TCCRateError}
+                          errorToPay={errorToPay}
 												/>
 											}
 										</div>

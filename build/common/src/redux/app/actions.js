@@ -14,6 +14,7 @@ const { Types, Creators } = createActions({
   setAppLoading: ['isLoading'],
   setPartLoading: ['appPart', 'isLoading'],
   setError: ['error'],
+  setErrorToPay: ['hasError'],
   setDialogState: ['dialogName', 'isActived'],
   setTabState: ['tabName', 'isActived'],
   cleanError: null,

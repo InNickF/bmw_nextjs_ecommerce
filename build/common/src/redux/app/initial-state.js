@@ -36,7 +36,8 @@ const INITIAL_STATE = fromJS({
   categoriesMenu: {
     offsetTop: 80,
     isVisible: false
-  }
+  },
+  errorToPay: false,
 })
 
 export default INITIAL_STATE

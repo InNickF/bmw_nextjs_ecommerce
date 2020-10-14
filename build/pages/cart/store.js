@@ -16,6 +16,7 @@ function mapStateToProps(store) {
 	const isPayButtonLoading = isPartLoadingSelector(store, 'payment')
 
 	const cart = store.get('cart').get('cart')
+	const errorToPay = store.get('app').get('errorToPay')
 	const cartLocal = Array.isArray(store.get('cart').get('cartLocal')) ? store.get('cart').get('cartLocal') : undefined
 	const withCoupon = cart && cart.charges ? cart.charges.resultCoupon : 0
 	const isPercentage = cart && cart.charges && cart.charges.coupon ? cart.charges.coupon.isPercentage : false
@@ -106,6 +107,7 @@ function mapStateToProps(store) {
 	return {
 		shippingValue,
 		TCCRateError,
+		errorToPay,
 		addressOK,
 		cart,
 		cartLocal,

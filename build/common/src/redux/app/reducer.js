@@ -16,6 +16,7 @@ const setPartLoading = (state, { appPart, isLoading }) =>
   state.setIn(['isPartLoading', appPart], isLoading)
 
 const setError = (state, { error }) => state.set('appError', "")
+const setErrorToPay = (state, { hasError }) => state.set('errorToPay', hasError)
 
 const setToken = (state, { token = null, userId = null }) =>
   state.set('auth', map({ token, userId }))
@@ -74,6 +75,7 @@ const reducer = createReducer(INITIAL_STATE, {
   [Actions.HIDE_FEEDBACK]: hideFeedback,
   [Actions.SET_ELEMENT_SHOWING]: setElementShowing,
   [Actions.SET_APP_LOADING]: setAppLoading,
+  [Actions.SET_ERROR_TO_PAY]: setErrorToPay,
   [Actions.SET_PART_LOADING]: setPartLoading,
   [Actions.SET_ERROR]: setError,
   [Actions.SET_TOKEN]: setToken,
