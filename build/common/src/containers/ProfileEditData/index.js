@@ -63,6 +63,14 @@ const validate = (values) => {
       "Únicamente números, mínimo 6 y máximo 20 caracteres";
   }
 
+  if (!values.get("taxPayer")) {
+    errors.taxPayer = "El tipo de contribuyente es obligatorio";
+  }
+
+  if (!values.get("docType")) {
+    errors.docType = "El tipo de documento es obligatorio";
+  }
+
   return errors;
 };
 
@@ -99,8 +107,60 @@ const warn = (values) => {
       "Únicamente números, mínimo 6 y máximo 20 caracteres";
   }
 
+  if (!values.get("taxPayer")) {
+    errors.taxPayer = "El tipo de contribuyente es obligatorio";
+  }
+
+  if (!values.get("docType")) {
+    errors.docType = "El tipo de documento es obligatorio";
+  }
   return errors;
 };
+
+const taxPayers = [
+  {
+    value: 'Persona Natural - No responsable del IVA',
+  },
+  {
+    value: 'Persona Natural - Impuestos sobre las ventas - IVA',
+  },
+  {
+    value: 'Persona Jurídica - Impuestos sobre las ventas - IVA',
+  },
+]
+
+const docTypes = [
+  {
+    value: 'Registro Civil',
+  },
+  {
+    value: 'Tarjeta de identidad',
+  },
+  {
+    value: 'Cédula de ciudadanía',
+  },
+  {
+    value: 'Tarjeta de Extranjería',
+  },
+  {
+    value: 'Cédula de Extranjería',
+  },
+  {
+    value: 'NIT',
+  },
+  {
+    value: 'Pasaporte',
+  },
+  {
+    value: 'Documento de Identificación Extranjero',
+  },
+  {
+    value: 'NUIP',
+  },
+  {
+    value: 'NIT de otro país',
+  },
+]
 
 class ProfileEditData extends React.Component {
   constructor(props) {
@@ -213,9 +273,14 @@ class ProfileEditData extends React.Component {
                   component={SelectSimple}
                   label="Tipo de documento"
                 >
-                  <option value="CC" selected>
-                    Cédula de ciudadania
+                  <option value="" disabled selected>
+                    Seleccione el tipo de documento
                   </option>
+                  {docTypes.map(option => 
+                    <option value={option.value}>
+                      {option.value}
+                    </option>
+                  )}
                 </Field>
               </div>
               <div>
@@ -229,6 +294,22 @@ class ProfileEditData extends React.Component {
               </div>
             </RowLine>
             <RowLine>
+              <div className="document">
+                <Field
+                  name="taxPayer"
+                  component={SelectSimple}
+                  label="Tipo de contribuyente"
+                >
+                  <option value="" disabled selected>
+                    Seleccione el tipo de contribuyente
+                  </option>
+                  {taxPayers.map(option => 
+                    <option value={option.value}>
+                      {option.value}
+                    </option>
+                  )}
+                </Field>
+              </div>
               <Field
                 name="birth"
                 component={InputSimple}

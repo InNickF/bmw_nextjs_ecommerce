@@ -15,7 +15,8 @@ export const endpoints = {
   availability: '/products/vehicle-availability',
   productVariations: 'product-variations',
   colorVariations: '/products/color-variations',
-  modelsCompatibility: '/products/modelCompatibility'
+  modelsCompatibility: '/products/modelCompatibility',
+  compatibilities: '/product-variations'
 }
 
 export default class {
@@ -41,6 +42,14 @@ export default class {
       ]
     })
     return request.get(`${endpoints.products}?filter=${filter}`)
+  }
+
+  static getAllCompatibilities(productId) {
+    const filter = JSON.stringify({
+      where: { productId },
+      include: ['vehicleModel', 'vehicleSerie', 'vehicleBodyWork']
+    })
+    return request.get(`${endpoints.compatibilities}?filter=${filter}`)
   }
 
   static getProductByFather(id) {

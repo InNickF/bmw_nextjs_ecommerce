@@ -19,7 +19,9 @@ import {
   Container,
   DesktopContainers,
   FilterButtons,
-  FilterFormModal
+  FilterFormModal,
+  AllCompatibilitiesContainer,
+  AllCompatibilitiesModalContent
 } from './styles'
 
 import withStore from './store'
@@ -48,16 +50,22 @@ function VehicleFilterBox({
   query,
   totalProducts,
   compatibility,
-  change
+  change,
+  compatibilities
 }) {
 
   const [showOnAnimation, setToggleAnimation] = useState(false);
+  const [showAllCompatibilities, setShowAllCompatibilities] = useState(false);
 
   const toggleAnimation = () => {
     setToggleAnimation(!showOnAnimation)
   }
   const closeModal = () => {
     setToggleAnimation(false)
+  }
+
+  const toggleCompatibilities = () => {
+    setShowAllCompatibilities(!showAllCompatibilities)
   }
 
   return (
@@ -159,7 +167,28 @@ function VehicleFilterBox({
           </Button>
         </FilterButtons>
       )}
-
+      {compatibilities && compatibilities.length > 0 &&
+        <AllCompatibilitiesContainer>
+          <h4 onClick={toggleCompatibilities}>O mira la lista de todos los modelos compatibles</h4>
+          <Modal
+          isVisible={showAllCompatibilities}
+          closeModal={toggleCompatibilities}
+          >
+            <AllCompatibilitiesModalContent>
+              <h3>Modelos compatibles con este producto:</h3>
+                <div className="compatibilities-list-container">
+                  {compatibilities.map(compatibility =>
+                    <div className="compatibility-module">
+                      <h4>Modelo: {compatibility.vehicleModel.name}</h4>
+                      <h5>{compatibility.vehicleSerie.name} | Carrocería: {compatibility.vehicleBodyWork.name}</h5>
+                      <h5>Desde el año: {compatibility.yearStart} hasta el año: {compatibility.yearEnd}</h5>
+                    </div>
+                  )}
+              </div>
+            </AllCompatibilitiesModalContent>
+          </Modal>
+        </AllCompatibilitiesContainer>
+      }
     </Container>
   )
 }

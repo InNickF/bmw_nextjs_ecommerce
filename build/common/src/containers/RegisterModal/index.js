@@ -72,6 +72,10 @@ const validate = values => {
   if (!values.get('priv')) {
     errors.priv = 'Campo obligatorio'
   }
+  if (!values.get("docType")) {
+    errors.docType = "El tipo de documento es obligatorio";
+  }
+
   return errors
 }
 
@@ -118,8 +122,44 @@ const warn = values => {
     errors['password-confirm'] = 'Las contraseñas no coinciden'
   }
 
+  if (!values.get("docType")) {
+    errors.docType = "El tipo de documento es obligatorio";
+  }
   return errors
 }
+
+const docTypes = [
+  {
+    value: 'Registro Civil',
+  },
+  {
+    value: 'Tarjeta de identidad',
+  },
+  {
+    value: 'Cédula de ciudadanía',
+  },
+  {
+    value: 'Tarjeta de Extranjería',
+  },
+  {
+    value: 'Cédula de Extranjería',
+  },
+  {
+    value: 'NIT',
+  },
+  {
+    value: 'Pasaporte',
+  },
+  {
+    value: 'Documento de Identificación Extranjero',
+  },
+  {
+    value: 'NUIP',
+  },
+  {
+    value: 'NIT de otro país',
+  },
+]
 
 class RegisterModal extends React.Component {
 
@@ -161,12 +201,14 @@ class RegisterModal extends React.Component {
                     component={SelectSimple}
                     label='Tipo de documento'
                   >
-                    <option value='CC' selected>
-                      Cédula de ciudadania
-                      </option>
-                    <option value='CC' selected>
-                      Cédula de extranjería
-                      </option>
+                  <option value="" disabled selected>
+                    Seleccione el tipo de documento
+                  </option>
+                  {docTypes.map(option => 
+                    <option value={option.value}>
+                      {option.value}
+                    </option>
+                  )}
                   </Field>
                 </div>
                 <div>
@@ -285,12 +327,14 @@ class RegisterModal extends React.Component {
                               component={SelectSimple}
                               label='Tipo de documento'
                             >
-                              <option value='CC' >
-                                Cédula de ciudadania
+                              <option value="" disabled selected>
+                                Seleccione el tipo de documento
                               </option>
-                              <option value='CE' >
-                                Cédula de extranjería
-                              </option>
+                              {docTypes.map(option => 
+                                <option value={option.value}>
+                                  {option.value}
+                                </option>
+                              )}
                             </Field>
                           </div>
                           <div>

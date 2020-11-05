@@ -51,8 +51,8 @@ function mapStateToProps(store) {
 	if (
 		(Object.hasOwnProperty.call(userData, 'identification') &&
 			userData.identification !== null) &&
-		/* (Object.hasOwnProperty.call(userData, 'birth') && */
-		/* userData.birth !== 'Invalid date') && */
+		(Object.hasOwnProperty.call(userData, 'taxPayer') &&
+			userData.taxPayer !== null) &&
 		(Object.hasOwnProperty.call(userData, 'email') &&
 			userData.email !== null)
 	) {

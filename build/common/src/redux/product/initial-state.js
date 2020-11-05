@@ -21,6 +21,7 @@ const INITIAL_STATE = fromJS({
   },
   products: [],
   productsWantread: [],
+  compatibilities: [],
   backUrlProducts: '',
   currentProduct: {},
   currentProductVehicles: {},

@@ -146,6 +146,7 @@ class ProductDetail extends React.Component {
                 getProducts={getProducts}
                 totalProducts={1}
                 query={query}
+                compatibilities={this.props.compatibilities}
               />
               :
               <SeparatorTop />

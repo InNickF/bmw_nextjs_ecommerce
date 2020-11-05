@@ -20,6 +20,17 @@ export function* getProductCategories() {
 	yield put(appActions.setPartLoading("menuCategories", false));
 }
 
+export function* setAllCompatibilities({productId}) {
+	try {
+			if(typeof productId == 'number') {
+			const result = yield call(ProductService.getAllCompatibilities, productId);
+			yield put(productActions.setAllCompatibilities(result.data));
+		}
+	} catch (e) {
+		yield put(appActions.setError(e.message));
+	}
+}
+
 export function* redirectToDetailById({productId}) {
 	/* yield put(appActions.setAppLoading(true)) */
 	try {
@@ -94,13 +105,17 @@ export function* getProductSaga(action) {
 						isAccessory,
 					})
 				);
+				const result = yield call(ProductService.getAllCompatibilities, currentProduct.id);
+				yield put(productActions.setAllCompatibilities(result.data));
 			} else {
 				const availability = yield call(
 					ProductService.availability,
 					resultProduct.data[0].sku
 				);
 				const productWithAvailability = availability.data;
-
+				yield put(
+					productActions.setAllCompatibilities(resultProduct.data[0].id)
+				);
 				yield put(
 					productActions.setCurrentProduct({
 						...resultProduct.data[0],
@@ -109,6 +124,8 @@ export function* getProductSaga(action) {
 						isAccessory,
 					})
 				);
+				const result = yield call(ProductService.getAllCompatibilities, currentProduct.id);
+				yield put(productActions.setAllCompatibilities(result.data));
 			}
 		} else {
 			yield put(
@@ -795,6 +812,7 @@ export default [
 		Actions.GET_RELATION_CAROUSEL_BY_PRODUCT,
 		getCarouselProductRelation
 	),
+	takeLatest(Actions.SET_ALL_COMPATIBILITIES, setAllCompatibilities),
 	takeLatest(Actions.GET_SERIES, getSeries),
 	takeLatest(Actions.GET_MODELS, getModels),
 	takeLatest(Actions.GET_COLOR_VARIATIONS, getColorVariations),

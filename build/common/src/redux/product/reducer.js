@@ -7,6 +7,8 @@ import INITIAL_STATE from './initial-state'
 const setCurrentProduct = (state, { product }) =>
   state.set('currentProduct', fromJS(product))
 
+const setAllCompatibilities = (state, { productId }) => state.set('compatibilities', productId)
+
 const setProductsStatus = (state, { status }) =>
   state.set('productsStatus', fromJS(status))
 
@@ -83,6 +85,7 @@ const setTalla = (state, { stock, image, sku, productChildrenId }) => {
 
 const reducer = createReducer(INITIAL_STATE, {
   [Actions.SET_CURRENT_PRODUCT]: setCurrentProduct,
+  [Actions.SET_ALL_COMPATIBILITIES]: setAllCompatibilities,
   [Actions.SET_CURRENT_PRODUCT_IN_WISHLIST]: setCurrentProductInWishlist,
   [Actions.SET_PRODUCT_CATEGORIES]: setProductCategories,
   [Actions.SET_CURRENT_CATEGORY]: setCurrentCategory,

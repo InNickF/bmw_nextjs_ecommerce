@@ -38,6 +38,51 @@ export const Container = styled.div`
 }
 `
 
+export const AllCompatibilitiesContainer = styled.div`
+  box-sizing: border-box;  
+  position: relative;
+  width: 100%;
+  margin-bottom:.4em;
+  h4 {
+    text-decoration:underline;
+    text-align:center;
+    cursor: pointer;
+    };
+`
+
+export const AllCompatibilitiesModalContent = styled.div`
+  box-sizing: border-box;
+  color: ${prop('theme.colors.textColor')};
+  margin: 0 auto;
+  width: 100%;
+  h3 {
+    font-size: 1.5rem;
+    margin:.5em 0;
+    padding-right:1.5em;
+  }
+  h4 {
+    font-size: 1.1rem;
+  }
+  .compatibility-module {
+    box-sizing: border-box;
+    width:100%;
+    margin-bottom: .7em;
+    padding: .7em;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.31)
+  }
+  .compatibilities-list-container {
+    max-height:600px;
+    overflow-y: scroll;
+    padding:.5em;
+    ${media.lessThan('tablet')`
+    max-height:400px;
+  `}
+  }
+`
+
+
 export const FilterFormModal = styled.button`
   .overlay-actual-car{
     position: fixed;

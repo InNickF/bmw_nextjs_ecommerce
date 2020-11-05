@@ -24,6 +24,7 @@ function mapStateToProps(store) {
   const productCategories = product.get('productCategories').toJS()
   const vehicles = product.get('currentProductVehicles').toJS()
   const currentProduct = product.get('currentProduct').toJS()
+  const compatibilities = product.get('compatibilities')
   const currentRelationProducts = product.get('carouselRelationByProduct').toJS()
   const models = product.get('models').toJS()
   const selectedCar = store.get('product').get('compatibility').toJS()
@@ -49,7 +50,8 @@ function mapStateToProps(store) {
     vehicles,
     currentRelationProducts,
     models,
-    products
+    products,
+    compatibilities
   }
 }
 

@@ -9,6 +9,7 @@ const { Types, Creators } = createActions({
   getProductsByCategory: ['categoryId', 'inAppPart', 'level', 'parentId', 'skus'],
   setProductsInPart: ['products', 'inAppPart'],
   setCurrentProductInWishlist: ['inWishlist'],
+  setAllCompatibilities: ['productId'],
   setProductCategories: ['categories'],
   setCurrentCategory: ['category'],
   getProductCategories: null,
