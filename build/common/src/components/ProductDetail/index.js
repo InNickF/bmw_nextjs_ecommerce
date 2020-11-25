@@ -344,7 +344,9 @@ class ProductDetail extends React.Component {
 			count: 1
 		})
 		if (sizes && sizes.length && sizes[0]) {
-			this.selectTalla(sizes[0])
+			let findCorrectSize = sizes.find(size => this.props.product.size == size.size && size.stock > 0 || size.stock > 0 && size.price > 0)
+			let firstSizeSelected = findCorrectSize ? findCorrectSize : sizes[0]
+			this.selectTalla(firstSizeSelected)
 		}
 	};
 
